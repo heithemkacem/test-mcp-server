@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<!--   <title>æ·±äº¤æä¸»é¡µ</title>   -->
+<script>
+    var title = '<a href="./" class="CurrChnlCls">é¦é¡µ</a> ';
+    title = title.substring(title.indexOf('>')+1,title.indexOf('</'));
+    document.write('<title>æ·±å³è¯å¸äº¤ææ-'+ title +'</title>')
+</script>
+<script>
+  if(location.protocol == 'https:'){
+    document.write('<link href="https://res.szse.cn/common/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />');
+  }else{
+    document.write('<link href="http://res.static.szse.cn/common/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />');
+  }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
+<meta http-equiv="cache-control" content="max-age=0">
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="expires" content="Web, 26 Feb 1997 08:21:57 GMT">
+<meta http-equiv="pragma" content="no-cache">
+<meta name="author" content="www.szse.cn">
+<meta name="description" content="æ·±äº¤æå®ç½">
+<meta name="keywords" content="æ·±äº¤æ,æ·±äº¤æå®ç½,æ·±å³è¯å¸äº¤ææ,äº¤ææ,äº¤ææå®ç½,æ·±å³è¯å¸äº¤ææå®ç½">
+<meta name="renderer" content=webkit>
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google" value="notranslate"> 
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="screen-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="browermode" content="application">
+<meta name="x5-orientation" content="portrait">
+<meta name="HandheldFriendly" content="true">
+<script type="text/javascript">
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;//androidç»ç«¯
+
+	function addElementMeta(name,  content) {
+		var head = document.getElementsByTagName('head')[0];
+		var meta = document.createElement('meta');
+
+		meta.setAttribute('name', name);
+		meta.setAttribute('content', content);
+		head.appendChild(meta);
+	}
+	if(isAndroid) {
+		addElementMeta('x5-fullscreen', 'true');
+		addElementMeta('x5-page-mode', 'app');
+	}
+</script> 
+    <script>
+  (function () {
+    var _versionDate = new Date().getTime();
+    if (location.protocol == 'https:') {
+      var _path = 'https://res.szse.cn';
+    } else {
+      var _path = 'http://res.static.szse.cn';
+    }
+    // _path = _path.replace(".static.", ".");
+    //var _path = 'http://res.szse.cn';
+    //document.write( " <script src='" + _path + "/common/js/first.js?random=" + _versionDate + "'> <\/script> ");
+    var _host = 'http://www.szse.cn';
+    if (location.protocol == 'https:') {
+      _host = 'https://www.szse.cn';
+    }
+
+
+    var backDomain = 'http://www.sse.org.cn'
+    var reg = /([a-zA-Z0-9][-a-zA-Z0-9]{0,62})((\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+)\.?(:\d+)?/;
+    if (backDomain && window.location.host.match(reg)[2] === backDomain.match(reg)[2]) {
+      _host = 'http://www.sse.org.cn';
+      _path = 'http://res.static.sse.org.cn';
+      if (location.protocol == 'https:') {
+        _host = 'https://www.sse.org.cn';
+        _path = 'https://res.static.sse.org.cn';
+      }
+
+    }
+
+    _path = _path.replace(".static.", ".");
+
+    document.write(" <script src='" + _host + "/szsePath.js?random=" + _versionDate + "'> <\/script> "
+      + " <script src='" + _path + "/common/js/concatversion.js?random=" + _versionDate + "'> <\/script> ");
+  }());
+</script>
+
+<script>
+
+  function backDomainLinkSwitch(value, type) {
+    var _port = location.port ? (":" + location.port) : "";
+    var reg = /([a-zA-Z0-9][-a-zA-Z0-9]{0,62})((\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+)\.?(:\d+)?/;
+    var urlRegx = /(.*)(http:|https:)(\/\/)(([a-zA-Z0-9][-a-zA-Z0-9]{0,62})((\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+))\.?(:\d+)?(.*)/;
+
+    // htmlå­ç¬¦ä¸²æ¿æ¢
+    if (type == 'str') {
+      var strArr = value.split("=");
+      strArr = strArr.map(function (v) {
+        var host = reg.test(v) ? v.match(reg)[0] : null;
+        if (pathObj.szseHosts.indexOf(host) > -1) {
+          if (window.location.protocol == 'https:' && urlRegx.test(v)) {
+            v = v.replace(urlRegx, '$1https:$3$4' + _port + '$9');
+          };
+          if (pathObj.current_host === pathObj.back_host) {
+            v = v.replace(pathObj.main_host, pathObj.back_host);
+          }
+        }
+        return v
+      });
+      value = strArr.join("=");
+      return value;
+    }
+
+    // aæ ç­¾å°åæ¿æ¢
+    if (type === 'A') {
+      var eleA = document.querySelectorAll(value);
+      for (var i = 0; i < eleA.length; i++) {
+        var href = eleA[i].getAttribute("href");
+        var host = reg.test(href) ? href.match(reg)[0] : null;
+        if (href && pathObj.szseHosts.indexOf(host) > -1) {
+          if (window.location.protocol == 'https:') {
+            href = href.replace(urlRegx, '$1https:$3$4' + _port + '$9');
+          };
+          if (pathObj.current_host === pathObj.back_host) {
+            href = href.replace(pathObj.main_host, pathObj.back_host);
+          }
+          eleA[i].setAttribute('href', href);
+        }
+      }
+    }
+
+    // åé¾æ¥æ¿æ¢
+    if (type === "link") {
+      if (window.location.protocol == 'https:' && !!value) {
+        value = value.replace(urlRegx, '$1https:$3$4' + _port + '$9');
+      };
+      if (pathObj.current_host === pathObj.back_host) {
+        var host = reg.test(value) ? value.match(reg)[0] : null;
+        if (value && pathObj.szseHosts.indexOf(host) > -1) {
+          value = value.replace(pathObj.main_host, pathObj.back_host);
+        }
+      }
+      return value;
+    }
+
+    // èæ¯å¾å°åæ´æ¢
+    if (type === "background") {
+      var eleBg = document.querySelectorAll(value);
+      for (var i = 0; i < eleBg.length; i++) {
+        var href = eleBg[i].style.backgroundImage;
+        if (window.location.protocol == 'https:' && !!href) {
+          href = href.replace(urlRegx, '$1https:$3$4' + _port + '$9');
+        };
+        var host = reg.test(href) ? href.match(reg)[0] : null;
+        if (href && pathObj.szseHosts.indexOf(host) > -1) {
+          if (pathObj.current_host === pathObj.back_host) {
+            href = href.replace(pathObj.main_host, pathObj.back_host);
+          }
+          eleBg[i].style.backgroundImage = href;
+        }
+      }
+    }
+
+  }
+
+</script>
+<!-- <script src="http://res.static.szse.cn/lib/td-h5-website-sdk.js" td-appid="56FD3F8B428A47FAB9A3F2191498B29D"></script> -->
+<script>
+    addComCssFile()
+</script>
+    <script>
+        changeVertion('/modules/index/css/index.css', 'css');
+        changeVertion('/lib/Swiper-2.7.6/idangerous.swiper.css', 'css');
+        var broadcaseCount=0;
+    </script>
+</head>
+<body class="szseindex-body">
+<!-- ç½®ç° -->
+<script>
+  (function () {
+    var _versionDate = new Date().getTime();
+
+    var _host = 'http://www.szse.cn';
+    if (location.protocol == 'https:') {
+      _host = 'https://www.szse.cn';
+    }
+
+    var backDomain = 'http://www.sse.org.cn'
+    var reg = /([a-zA-Z0-9][-a-zA-Z0-9]{0,62})((\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+)\.?(:\d+)?/;
+    if (backDomain && window.location.host.match(reg)[2] === backDomain.match(reg)[2]) {
+      _host = 'http://www.sse.org.cn';
+      if (location.protocol == 'https:') {
+        _host = 'https://www.sse.org.cn';
+      }
+
+    }
+    document.write(" <script src='" + _host + "/dynamicmodule/index/sysconfig.js?random=" + _versionDate + "'> <\/script> ");
+
+  }());
+</script>
+
+<script>
+  if (typeof sysconfig !== 'undefined' && sysconfig.gray) {
+    document.documentElement.className += ' ' + "grayscale";
+
+    var isGrayscaleEvent = document.createEvent('HTMLEvents');
+    isGrayscaleEvent.initEvent("grayscaleEvent", true, true);
+  };
+</script>
+<!-- å®£ä¼ å¤§å¾ -->
+<div>
+  
+
+  
+
+</div>
+
+<script>
+  navMenuAJAX('/application/publicindex/header/index.html', '/application/publicindex/header/index.html', 'header', 'www');
+</script>
+<div class="g-locationnav">
+    <div class="banner-wrap">
+      <img src="http://res.static.szse.cn/common/images/legalrules-banner.jpg" />
+    </div>
+    <div class="g-container">
+      <div class="g-banner-txt">
+            <h2 class="hidden-xs">é¦é¡µ</h2>
+            <p>
+              <img src="http://res.static.szse.cn/common/icon/er-banneradr.png" />ä½ç½®ï¼<a href="./" class="CurrChnlCls">é¦é¡µ</a>
+            </p>
+          </div>
+    </div>
+</div>
+<script>
+  /*
+   * url:jsonå°å
+   * lengthï¼æç« æ¡æ°
+   */
+  var getRelatedColumnJson = function (option) {
+    var obj = {
+      url: option.url + '?random=' + Math.random(),
+      success: function (data) {
+        var jsonData = {};
+        jsonData.data = data.data.length > option.length ? data.data.splice(0, option.length) : data.data;
+        var htmlStr = "";
+        for (var i = 0; i < jsonData.data.length; i++) {
+          var item = jsonData.data[i];
+          var curHref = item.url;
+          var curTitle = item.title;
+          var curCmsDocType = item.type;
+          var pubTime = dateFormatFn(new Date(item.pubTime), "yyyy-MM-dd");
+          var curTarget = '';
+          var pointIndex = curHref.lastIndexOf('.');
+          var docType = curHref.substring(pointIndex + 1).toLocaleLowerCase();
+          if (!(docType == 'html' || docType == 'pdf' || docType == 'xml' || docType == 'txt' || docType == 'jpg' || docType == 'png' || docType == 'jpeg' || docType == 'bmp') && curCmsDocType != 30) {
+            curTarget = '_self';
+          } else {
+            curTarget = '_blank';
+          };
+
+          htmlStr += '<li>' +
+            '<div class="title ">' +
+            '<a class="ellipsis art-list-link" href="' + curHref + '" title="' + curTitle + '" target="' + curTarget + '">' + curTitle + '</a>' +
+            '</div>' +
+            '<span class="time">' + pubTime + '</span>' +
+            '</li>';
+        }
+        document.write(htmlStr);
+      }
+    }
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          var response;
+          var type = xhr.getResponseHeader('Content-Type');
+          if (type.indexOf('application/json') > -1) {
+            response = JSON.parse(xhr.responseText);
+          } else {
+            response = xhr.responseText;
+          }
+          obj.success && obj.success(response);
+        }
+      }
+    }
+    xhr.open('GET', obj.url, false);
+    xhr.send();
+  }
+
+  function dateFormatFn(date, fmt) {
+    var o = {
+      "M+": date.getMonth() + 1, //æä»½ 
+      "d+": date.getDate(), //æ¥ 
+      "H+": date.getHours(), //å°æ¶ 
+      "m+": date.getMinutes(), //å 
+      "s+": date.getSeconds(), //ç§ 
+      "q+": Math.floor((date.getMonth() + 3) / 3), //å­£åº¦ 
+      "S": date.getMilliseconds() //æ¯«ç§ 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+      if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+  }
+
+
+
+
+</script>
+<div class="indexbanner-wrap index-banner">
+    
+        <script>  
+            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020241009354696512488.png";
+            hreflink = backDomainLinkSwitch(hreflink,'link');
+            // è§£å³swiperåå§ååè½®æ­ç©ºç½ï¼ç»divä¸ªé»è®¤èæ¯å¾
+            function setSwiperBgStyle(){
+              var _swiperBgWidth="";
+              if (document.body.offsetWidth > 1180) {
+                _swiperBgWidth = 1180;
+              } else {
+                _swiperBgWidth = document.body.offsetWidth;
+              }
+              var _swiperBgHeight =  (530 / 1180) * _swiperBgWidth;
+              document.querySelector('.indexbanner-wrap').style.height = _swiperBgHeight + 'px';
+            }
+            setSwiperBgStyle();
+            document.querySelector('.indexbanner-wrap').style.backgroundImage = "url(" + hreflink + ")";
+        </script>
+    
+    <div class="swiper-device">
+        <a class="arrow-left" href="#"></a> 
+        <a class="arrow-right" href="#"></a>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                
+                    <div class="swiper-slide">
+                        <script>  
+                            var hrefType = "http://www.szse.cn/sustainablefinance/index/index.html";
+                            var hrefCon = 'href="/index/http://www.szse.cn/sustainablefinance/index/index.html" target="_blank"';
+                            if(hrefType == "#"){
+                                hrefCon = '';
+                            }else if(hrefType.indexOf('http')>-1){
+                                                              hrefCon = 'href="http://www.szse.cn/sustainablefinance/index/index.html" target="_blank"';
+                                                        }
+                            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020241009354696512488.png";
+                            hreflink = backDomainLinkSwitch(hreflink,'link');
+                            if(~[10,11].indexOf(document.documentMode)&&!~hreflink.indexOf('big5')&&document.documentElement.className.indexOf('grayscale')>-1) {
+                              hreflink = hreflink.split('//')[1];
+                              hreflink = hreflink.substring(hreflink.indexOf('/'));                              
+                            };
+                            document.write("<a style='background-image: url("+hreflink+");' "+hrefCon+"></a>");
+                        </script>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <script>  
+                            var hrefType = "http://www.szse.cn/transparency/index/";
+                            var hrefCon = 'href="/index/http://www.szse.cn/transparency/index/" target="_blank"';
+                            if(hrefType == "#"){
+                                hrefCon = '';
+                            }else if(hrefType.indexOf('http')>-1){
+                                                              hrefCon = 'href="http://www.szse.cn/transparency/index/" target="_blank"';
+                                                        }
+                            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020230909397872175751.jpg";
+                            hreflink = backDomainLinkSwitch(hreflink,'link');
+                            if(~[10,11].indexOf(document.documentMode)&&!~hreflink.indexOf('big5')&&document.documentElement.className.indexOf('grayscale')>-1) {
+                              hreflink = hreflink.split('//')[1];
+                              hreflink = hreflink.substring(hreflink.indexOf('/'));                              
+                            };
+                            document.write("<a style='background-image: url("+hreflink+");' "+hrefCon+"></a>");
+                        </script>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <script>  
+                            var hrefType = "http://dr.szse.cn/";
+                            var hrefCon = 'href="/index/http://dr.szse.cn/" target="_blank"';
+                            if(hrefType == "#"){
+                                hrefCon = '';
+                            }else if(hrefType.indexOf('http')>-1){
+                                                              hrefCon = 'href="http://dr.szse.cn/" target="_blank"';
+                                                        }
+                            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020220708691759094357.png";
+                            hreflink = backDomainLinkSwitch(hreflink,'link');
+                            if(~[10,11].indexOf(document.documentMode)&&!~hreflink.indexOf('big5')&&document.documentElement.className.indexOf('grayscale')>-1) {
+                              hreflink = hreflink.split('//')[1];
+                              hreflink = hreflink.substring(hreflink.indexOf('/'));                              
+                            };
+                            document.write("<a style='background-image: url("+hreflink+");' "+hrefCon+"></a>");
+                        </script>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <script>  
+                            var hrefType = "http://list.cninfo.com.cn";
+                            var hrefCon = 'href="/index/http://list.cninfo.com.cn" target="_blank"';
+                            if(hrefType == "#"){
+                                hrefCon = '';
+                            }else if(hrefType.indexOf('http')>-1){
+                                                              hrefCon = 'href="http://list.cninfo.com.cn" target="_blank"';
+                                                        }
+                            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020221208569066013344.jpg";
+                            hreflink = backDomainLinkSwitch(hreflink,'link');
+                            if(~[10,11].indexOf(document.documentMode)&&!~hreflink.indexOf('big5')&&document.documentElement.className.indexOf('grayscale')>-1) {
+                              hreflink = hreflink.split('//')[1];
+                              hreflink = hreflink.substring(hreflink.indexOf('/'));                              
+                            };
+                            document.write("<a style='background-image: url("+hreflink+");' "+hrefCon+"></a>");
+                        </script>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <script>  
+                            var hrefType = "http://bond.szse.cn/bayarea/index/index.html";
+                            var hrefCon = 'href="/index/http://bond.szse.cn/bayarea/index/index.html" target="_blank"';
+                            if(hrefType == "#"){
+                                hrefCon = '';
+                            }else if(hrefType.indexOf('http')>-1){
+                                                              hrefCon = 'href="http://bond.szse.cn/bayarea/index/index.html" target="_blank"';
+                                                        }
+                            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020221224566486725127.jpg";
+                            hreflink = backDomainLinkSwitch(hreflink,'link');
+                            if(~[10,11].indexOf(document.documentMode)&&!~hreflink.indexOf('big5')&&document.documentElement.className.indexOf('grayscale')>-1) {
+                              hreflink = hreflink.split('//')[1];
+                              hreflink = hreflink.substring(hreflink.indexOf('/'));                              
+                            };
+                            document.write("<a style='background-image: url("+hreflink+");' "+hrefCon+"></a>");
+                        </script>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <script>  
+                            var hrefType = "http://res.static.szse.cn/simple/dist/index.html";
+                            var hrefCon = 'href="/index/http://res.static.szse.cn/simple/dist/index.html" target="_blank"';
+                            if(hrefType == "#"){
+                                hrefCon = '';
+                            }else if(hrefType.indexOf('http')>-1){
+                                                              hrefCon = 'href="http://res.static.szse.cn/simple/dist/index.html" target="_blank"';
+                                                        }
+                            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020210731774751121342.png";
+                            hreflink = backDomainLinkSwitch(hreflink,'link');
+                            if(~[10,11].indexOf(document.documentMode)&&!~hreflink.indexOf('big5')&&document.documentElement.className.indexOf('grayscale')>-1) {
+                              hreflink = hreflink.split('//')[1];
+                              hreflink = hreflink.substring(hreflink.indexOf('/'));                              
+                            };
+                            document.write("<a style='background-image: url("+hreflink+");' "+hrefCon+"></a>");
+                        </script>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <script>  
+                            var hrefType = "http://reits.szse.cn";
+                            var hrefCon = 'href="/index/http://reits.szse.cn" target="_blank"';
+                            if(hrefType == "#"){
+                                hrefCon = '';
+                            }else if(hrefType.indexOf('http')>-1){
+                                                              hrefCon = 'href="http://reits.szse.cn" target="_blank"';
+                                                        }
+                            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020210301556636602582.png";
+                            hreflink = backDomainLinkSwitch(hreflink,'link');
+                            if(~[10,11].indexOf(document.documentMode)&&!~hreflink.indexOf('big5')&&document.documentElement.className.indexOf('grayscale')>-1) {
+                              hreflink = hreflink.split('//')[1];
+                              hreflink = hreflink.substring(hreflink.indexOf('/'));                              
+                            };
+                            document.write("<a style='background-image: url("+hreflink+");' "+hrefCon+"></a>");
+                        </script>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <script>  
+                            var hrefType = "http://listing.szse.cn/";
+                            var hrefCon = 'href="/index/http://listing.szse.cn/" target="_blank"';
+                            if(hrefType == "#"){
+                                hrefCon = '';
+                            }else if(hrefType.indexOf('http')>-1){
+                                                              hrefCon = 'href="http://listing.szse.cn/" target="_blank"';
+                                                        }
+                            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020230217511816331693.png";
+                            hreflink = backDomainLinkSwitch(hreflink,'link');
+                            if(~[10,11].indexOf(document.documentMode)&&!~hreflink.indexOf('big5')&&document.documentElement.className.indexOf('grayscale')>-1) {
+                              hreflink = hreflink.split('//')[1];
+                              hreflink = hreflink.substring(hreflink.indexOf('/'));                              
+                            };
+                            document.write("<a style='background-image: url("+hreflink+");' "+hrefCon+"></a>");
+                        </script>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <script>  
+                            var hrefType = "http://www.szse.cn/ydyl/index.html";
+                            var hrefCon = 'href="/index/http://www.szse.cn/ydyl/index.html" target="_blank"';
+                            if(hrefType == "#"){
+                                hrefCon = '';
+                            }else if(hrefType.indexOf('http')>-1){
+                                                              hrefCon = 'href="http://www.szse.cn/ydyl/index.html" target="_blank"';
+                                                        }
+                            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020190514547458567248.jpg";
+                            hreflink = backDomainLinkSwitch(hreflink,'link');
+                            if(~[10,11].indexOf(document.documentMode)&&!~hreflink.indexOf('big5')&&document.documentElement.className.indexOf('grayscale')>-1) {
+                              hreflink = hreflink.split('//')[1];
+                              hreflink = hreflink.substring(hreflink.indexOf('/'));                              
+                            };
+                            document.write("<a style='background-image: url("+hreflink+");' "+hrefCon+"></a>");
+                        </script>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <script>  
+                            var hrefType = "http://investor.szse.cn/institute/ad/P020181219530385988338.mp4";
+                            var hrefCon = 'href="/index/http://investor.szse.cn/institute/ad/P020181219530385988338.mp4" target="_blank"';
+                            if(hrefType == "#"){
+                                hrefCon = '';
+                            }else if(hrefType.indexOf('http')>-1){
+                                                              hrefCon = 'href="http://investor.szse.cn/institute/ad/P020181219530385988338.mp4" target="_blank"';
+                                                        }
+                            var hreflink = "http://docs.static.szse.cn/www/index/slide/W020190610386557460855.jpg";
+                            hreflink = backDomainLinkSwitch(hreflink,'link');
+                            if(~[10,11].indexOf(document.documentMode)&&!~hreflink.indexOf('big5')&&document.documentElement.className.indexOf('grayscale')>-1) {
+                              hreflink = hreflink.split('//')[1];
+                              hreflink = hreflink.substring(hreflink.indexOf('/'));                              
+                            };
+                            document.write("<a style='background-image: url("+hreflink+");' "+hrefCon+"></a>");
+                        </script>
+                    </div>
+                
+            </div>
+        </div>
+        <div class="pagination"></div>
+    </div> 
+</div>
+
+
+<script>
+    
+    broadcaseCount=1
+    
+    
+    
+</script>
+<div class="home-entrance-wrap">
+    <div class="g-container">
+        <script type="text/javascript">
+            if(broadcaseCount==1){
+                document.write('<div class="news-broadcast clearfix">');
+            }else{
+                document.write('<div class="news-broadcast clearfix" style="display:none;">');
+            }
+        </script>
+        <span class="tip pull-left">éè¦æ´æ°:</span>
+        <div class="roll-part">
+            <ul>
+                
+
+                    <li>
+                        <div class="title">
+                            <script>
+                                var curHref = 'http://www.szse.cn/marketServices/technicalservice/topic/t20250304_612169.html';
+                                var curTitle = 'å³äºè¯å¸æè´§ä¸éèç§æç ç©¶åå±ä¸­å¿ï¼æ·±å³ï¼2025å¹´ç ç©¶è¯¾é¢å¾éçéç¥';
+                                var curCmsDocType = '30'
+                                var curTarget = '';
+                                var pointIndex = curHref.lastIndexOf('.');
+                                var docType = curHref.substring(pointIndex+1);
+                                if (curHref.indexOf('http') == -1) {
+                                    curHref='/index/'+curHref;
+                                }
+                                if (!(docType == 'html' || docType == 'pdf' || docType == 'xml' || docType == 'PDF' || docType == 'txt' || docType == 'jpg' || docType == 'png' || docType == 'jpeg' || docType == 'bmp') && curCmsDocType != 30) {
+                                    curTarget = '_self';
+                                } else {
+                                    curTarget = '_blank';
+                                }
+
+                                document.write('<a class="title ellipsis art-list-link" href="' + curHref + '" title="' + curTitle + '" target="' + curTarget + '">' + curTitle + '</a>');
+
+                            </script>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="entrance-container mt15 clearfix">
+      <div class="title visible-xs">
+        <h2>
+          ç¨æ·å¥å£
+        </h2>
+      </div>
+      <div class="entrance-user clearfix">
+        <div class="entrance-zcz entrance-l">
+          <a href="http://listing.szse.cn" target="_blank">
+          <span class="zcz-logo"></span>
+          <span class="zcz-name">æ³¨åå¶</span>
+          </a>
+        </div>
+        <div class="title hidden-xs">
+          <h2>
+            ç¨æ·å¥å£
+          </h2>
+        </div>
+        <div class="entrance-r">
+          <ul class="list clearfix">
+            <li>
+              <a target="_blank" href="../application/users/investor/">
+                <i class="quick-icon icon1"></i>
+                <div>æèµè</div>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="../application/users/ipo/">
+                <i class="quick-icon icon2"></i>
+                <div>ä¸å¸å¬å¸</div>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="../application/users/complanning/">
+                <i class="quick-icon icon3"></i>
+                <div>æä¸å¸ä¼ä¸</div>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="../application/users/member/">
+                <i class="quick-icon icon4"></i>
+                <div>ä¼åæºæ</div>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="../application/users/fundcom/">
+                <i class="quick-icon icon6"></i>
+                <div>åºéå¬å¸</div>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="../application/users/agency/">
+                <i class="quick-icon icon7"></i>
+                <div>åºæ¶æ¿é</div>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="../application/users/sponsor/">
+                <i class="quick-icon icon8"></i>
+                <div>ä¿èäºº</div>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="../application/users/government/">
+                <i class="quick-icon icon9"></i>
+                <div>æ¿åºæºæ</div>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="../application/users/media/">
+                <i class="quick-icon icon5"></i>
+                <div>åªä½åä½</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+</div>
+</div>
+
+<div class="home-entrance-wrap buss">
+  <div class="g-container">
+    <div class="entrance-container clearfix">
+      <div class="title visible-xs">
+        <h2>
+          äº§åä¸­å¿
+        </h2>
+      </div>
+      <div class="entrance-buss clearfix">
+        <div class="entrance-tran entrance-l">
+          <a href="../transparency/index/" target="_blank">
+            <span class="tran-logo"></span>
+            <span class="tran-name">é³åçç®¡éææå¡</span>
+          </a>
+        </div>
+        <div class="title hidden-xs">
+          <h2>
+            äº§åä¸­å¿
+          </h2>
+        </div>
+        <div class="entrance-r">
+          <ul class="list clearfix">
+            <li>
+              <a href="../certificate/" target="_blank">
+                <span class="icon gp-icon"></span>
+                <span class="tit">è¡ç¥¨</span>
+              </a>
+            </li>
+            <li>
+              <a href="http://fund.szse.cn" target="_blank" class="lefu_path">
+                <span class="icon jj-icon"></span>
+                <span class="tit">åºé</span>
+              </a>
+            </li>
+            <li>
+              <a href="http://reits.szse.cn" target="_blank" class="reits_path">
+                <span class="icon reits-icon"></span>
+                <span class="tit">å¬åREITs</span>
+              </a>
+            </li>
+            <li>
+              <a href="http://bond.szse.cn" target="_blank" class="bond_path">
+                <span class="icon gs-icon"></span>
+                <span class="tit">åºæ¶äº§å</span>
+              </a>
+            </li>
+            <li>
+              <a href="../option/" target="_blank">
+                <span class="icon qq-icon"></span>
+                <span class="tit">è¡ç¥¨ææ</span>
+              </a>
+            </li>
+            <li>
+              <a href="../application/mpe/" target="_blank">
+                <span class="icon hy-icon"></span>
+                <span class="tit">ä¼åäº§å</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- æ¶æ¿è¦é» å¼å§ -->
+
+  <div class="homem-news-wrap currentAffairs">
+    <div class="g-container">
+      <h2 class="news-tit clearfix">æ¶æ¿è¦é»<a href="/index/news/index.html" target="_blank">æ´å¤<span class="glyphicon glyphicon-menu-right"></span></a></h2>
+      <div class="article-list clearfix currentAffairs">
+        
+          <ul class="newslist date-left news visitsNum">
+            
+              <li>
+                <div class="title ">
+                  <script>
+                    var curHref = 'https://www.peopleapp.com/column/30049242247-500006295158';
+                    var curTitle = 'âä¸­å½ç»æµæç»­å±ç°å¼ºå²é§æ§âââå½éäººå£«ç§¯æè¯ä»·ä¸­å½ä¸ç³»åæ¿ç­ä¸¾æªææ¯ç»æµåå±ä¿¡å¿';
+                    var curCmsDocType = '30'
+                    var curTarget = '';
+                    var pointIndex = curHref.lastIndexOf('.');
+                    var docType = curHref.substring(pointIndex+1);
+                    if (curHref.indexOf('http') == -1) {
+                        curHref='/index/'+curHref;
+                    }
+                    if (!(docType == 'html' || docType == 'pdf' || docType == 'xml' || docType == 'PDF' || docType == 'txt' || docType == 'jpg' || docType == 'png' || docType == 'jpeg' || docType == 'bmp') && curCmsDocType != 30) {
+                        curTarget = '_self';
+                    } else {
+                        curTarget = '_blank';
+                    }
+
+                    document.write('<a class="title ellipsis art-list-link" href="' + curHref + '" title="' + curTitle + '" target="' + curTarget + '">' + curTitle + '</a>');
+
+                  </script>
+                </div>
+                <span class="time">
+                  2025-06-03
+                </span>
+              </li>
+            
+              <li>
+                <div class="title ">
+                  <script>
+                    var curHref = 'https://www.gov.cn/yaowen/liebiao/202505/content_7026023.htm';
+                    var curTitle = 'ãæ±æ¯ãæå¿åè¡¨ä¹ è¿å¹³æ»ä¹¦è®°éè¦æç« ãå å¿«å»ºè®¾æè²å¼ºå½ã';
+                    var curCmsDocType = '30'
+                    var curTarget = '';
+                    var pointIndex = curHref.lastIndexOf('.');
+                    var docType = curHref.substring(pointIndex+1);
+                    if (curHref.indexOf('http') == -1) {
+                        curHref='/index/'+curHref;
+                    }
+                    if (!(docType == 'html' || docType == 'pdf' || docType == 'xml' || docType == 'PDF' || docType == 'txt' || docType == 'jpg' || docType == 'png' || docType == 'jpeg' || docType == 'bmp') && curCmsDocType != 30) {
+                        curTarget = '_self';
+                    } else {
+                        curTarget = '_blank';
+                    }
+
+                    document.write('<a class="title ellipsis art-list-link" href="' + curHref + '" title="' + curTitle + '" target="' + curTarget + '">' + curTitle + '</a>');
+
+                  </script>
+                </div>
+                <span class="time">
+                  2025-05-31
+                </span>
+              </li>
+            
+              <li>
+                <div class="title ">
+                  <script>
+                    var curHref = 'http://www.xinhuanet.com/fortune/20250530/2962359a236740d6a54361f81633715d/c.html';
+                    var curTitle = 'å¤å®¶å½éæè¡ä¸è°ä¸­å½ç»æµå¢éé¢æ';
+                    var curCmsDocType = '30'
+                    var curTarget = '';
+                    var pointIndex = curHref.lastIndexOf('.');
+                    var docType = curHref.substring(pointIndex+1);
+                    if (curHref.indexOf('http') == -1) {
+                        curHref='/index/'+curHref;
+                    }
+                    if (!(docType == 'html' || docType == 'pdf' || docType == 'xml' || docType == 'PDF' || docType == 'txt' || docType == 'jpg' || docType == 'png' || docType == 'jpeg' || docType == 'bmp') && curCmsDocType != 30) {
+                        curTarget = '_self';
+                    } else {
+                        curTarget = '_blank';
+                    }
+
+                    document.write('<a class="title ellipsis art-list-link" href="' + curHref + '" title="' + curTitle + '" target="' + curTarget + '">' + curTitle + '</a>');
+
+                  </script>
+                </div>
+                <span class="time">
+                  2025-05-30
+                </span>
+              </li>
+            
+          </ul>
+        
+          <ul class="newslist date-left news visitsNum">
+            
+              <li>
+                <div class="title ">
+                  <script>
+                    var curHref = 'https://www.gov.cn/yaowen/liebiao/202505/content_7025555.htm';
+                    var curTitle = 'æå¼ºåºå¸­ä¸çï¼ä¸­å½ï¼æµ·åä¼å³°ä¼';
+                    var curCmsDocType = '30'
+                    var curTarget = '';
+                    var pointIndex = curHref.lastIndexOf('.');
+                    var docType = curHref.substring(pointIndex+1);
+                    if (curHref.indexOf('http') == -1) {
+                        curHref='/index/'+curHref;
+                    }
+                    if (!(docType == 'html' || docType == 'pdf' || docType == 'xml' || docType == 'PDF' || docType == 'txt' || docType == 'jpg' || docType == 'png' || docType == 'jpeg' || docType == 'bmp') && curCmsDocType != 30) {
+                        curTarget = '_self';
+                    } else {
+                        curTarget = '_blank';
+                    }
+
+                    document.write('<a class="title ellipsis art-list-link" href="' + curHref + '" title="' + curTitle + '" target="' + curTarget + '">' + curTitle + '</a>');
+
+                  </script>
+                </div>
+                <span class="time">
+                  2025-05-28
+                </span>
+              </li>
+            
+              <li>
+                <div class="title ">
+                  <script>
+                    var curHref = 'https://www.peopleapp.com/column/30049182690-500006281704';
+                    var curTitle = 'æèµä¸­å½ æèµæªæ¥ââå­ä½å¤å½å¨ååä¼è´è´£äººè°ä¸­å½æºé';
+                    var curCmsDocType = '30'
+                    var curTarget = '';
+                    var pointIndex = curHref.lastIndexOf('.');
+                    var docType = curHref.substring(pointIndex+1);
+                    if (curHref.indexOf('http') == -1) {
+                        curHref='/index/'+curHref;
+                    }
+                    if (!(docType == 'html' || docType == 'pdf' || docType == 'xml' || docType == 'PDF' || docType == 'txt' || docType == 'jpg' || docType == 'png' || docType == 'jpeg' || docType == 'bmp') && curCmsDocType != 30) {
+                        curTarget = '_self';
+                    } else {
+                        curTarget = '_blank';
+                    }
+
+                    document.write('<a class="title ellipsis art-list-link" href="' + curHref + '" title="' + curTitle + '" target="' + curTarget + '">' + curTitle + '</a>');
+
+                  </script>
+                </div>
+                <span class="time">
+                  2025-05-27
+                </span>
+              </li>
+            
+              <li>
+                <div class="title ">
+                  <script>
+                    var curHref = 'https://www.gov.cn/yaowen/liebiao/202505/content_7024731.htm';
+                    var curTitle = 'âæåå²è§è§ãæç¥æç»´ï¼é½è½å®å°å·ä½è¡å¨ä¸æ¥âââä¹ è¿å¹³æ»ä¹¦è®°æ²³åèå¯çºªå®';
+                    var curCmsDocType = '30'
+                    var curTarget = '';
+                    var pointIndex = curHref.lastIndexOf('.');
+                    var docType = curHref.substring(pointIndex+1);
+                    if (curHref.indexOf('http') == -1) {
+                        curHref='/index/'+curHref;
+                    }
+                    if (!(docType == 'html' || docType == 'pdf' || docType == 'xml' || docType == 'PDF' || docType == 'txt' || docType == 'jpg' || docType == 'png' || docType == 'jpeg' || docType == 'bmp') && curCmsDocType != 30) {
+                        curTarget = '_self';
+                    } else {
+                        curTarget = '_blank';
+                    }
+
+                    document.write('<a class="title ellipsis art-list-link" href="' + curHref + '" title="' + curTitle + '" target="' + curTarget + '">' + curTitle + '</a>');
+
+                  </script>
+                </div>
+                <span class="time">
+                  2025-05-22
+                </span>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+
+<!-- æ¶æ¿è¦é» ç»æ -->
+
+<!-- æ¬æè¦é» å¼å§ -->
+<div class="homem-news-wrap">
+    <div class="g-container">
+        <h2 class="news-tit clearfix">æ·±äº¤æè¦é»<a href="../aboutus/trends/news/" target="_blank">æ´å¤<span class="glyphicon glyphicon-menu-right"></span></a></h2>
+        <div class="list-wrap article-list">
+            <ul class="list clearfix">
+                
+                    <li>
+                       <div class="thumb">
+                           <a class="art-list-link" href="../aboutus/trends/news/t20250610_613979.html" target="_blank">
+                              <script>  
+                                  var imgSrc = 'http://docs.static.szse.cn/www/aboutus/trends/news/W020250610582211446713.jpg';
+                                  imgSrc = backDomainLinkSwitch(imgSrc,'link');
+                                  document.write('<img src="'+imgSrc+'" onerror="onImageError(this)" />');
+                              </script>
+                           </a>
+                       </div>
+                       <h3 class="title ellipsis" title="è®£å">
+                       <a href="../aboutus/trends/news/t20250610_613979.html" target="_blank">
+                           è®£å
+                       </a>
+                       </h3>
+                       <div class="summary">
+                           
+                       </div>
+                       <div class="go-more">
+                           <a href="../aboutus/trends/news/t20250610_613979.html" target="_blank"></a>
+                         <!--  <strong>æ¥çè¯¦ç»</strong><i class="glyphicon glyphicon-menu-right"></i> -->
+                       </div>
+                    </li>
+                
+                    <li>
+                       <div class="thumb">
+                           <a class="art-list-link" href="../aboutus/trends/news/t20250605_613908.html" target="_blank">
+                              <script>  
+                                  var imgSrc = 'http://docs.static.szse.cn/www/aboutus/trends/news/W020250605302667394509.jpg';
+                                  imgSrc = backDomainLinkSwitch(imgSrc,'link');
+                                  document.write('<img src="'+imgSrc+'" onerror="onImageError(this)" />');
+                              </script>
+                           </a>
+                       </div>
+                       <h3 class="title ellipsis" title="ä¼ä¼ç»¿è½å¨æ·±äº¤æä¸å¸">
+                       <a href="../aboutus/trends/news/t20250605_613908.html" target="_blank">
+                           ä¼ä¼ç»¿è½å¨æ·±äº¤æä¸å¸
+                       </a>
+                       </h3>
+                       <div class="summary">
+                           
+                       </div>
+                       <div class="go-more">
+                           <a href="../aboutus/trends/news/t20250605_613908.html" target="_blank"></a>
+                         <!--  <strong>æ¥çè¯¦ç»</strong><i class="glyphicon glyphicon-menu-right"></i> -->
+                       </div>
+                    </li>
+                
+                    <li>
+                       <div class="thumb">
+                           <a class="art-list-link" href="../aboutus/trends/news/t20250603_613889.html" target="_blank">
+                              <script>  
+                                  var imgSrc = 'http://docs.static.szse.cn/www/aboutus/trends/news/W020250603531709680483.jpg';
+                                  imgSrc = backDomainLinkSwitch(imgSrc,'link');
+                                  document.write('<img src="'+imgSrc+'" onerror="onImageError(this)" />');
+                              </script>
+                           </a>
+                       </div>
+                       <h3 class="title ellipsis" title="æ·±è¯ææãåä¸æ¿æãæ·±è¯100ç­æ·±å¸ææ°æ ·æ¬è°æ´">
+                       <a href="../aboutus/trends/news/t20250603_613889.html" target="_blank">
+                           æ·±è¯ææãåä¸æ¿æãæ·±è¯100ç­æ·±å¸ææ°æ ·æ¬è°æ´
+                       </a>
+                       </h3>
+                       <div class="summary">
+                           
+                       </div>
+                       <div class="go-more">
+                           <a href="../aboutus/trends/news/t20250603_613889.html" target="_blank"></a>
+                         <!--  <strong>æ¥çè¯¦ç»</strong><i class="glyphicon glyphicon-menu-right"></i> -->
+                       </div>
+                    </li>
+                
+                <script type="text/javascript">
+                    function onImageError(obj){
+                        obj.style="height:auto";
+                        obj.src = "/modules/index/images/mainnewsbg01.jpg";
+                        obj.onerror=null;
+                    }
+                </script>
+            </ul>
+        </div>
+        <!-- <p class="homem-news-more">
+             <a href="../aboutus/trends/news/" target="_blank">æ´å¤&nbsp&nbsp<span class="glyphicon glyphicon-menu-right"></span></a>
+         </p> -->
+    </div>
+</div>
+<!-- æ¬æè¦é» ç»æ -->
+<!-- æ¬æå¬å å¼å§-->
+
+<div class="homem-notice-wrap">
+    <div class="g-container clearfix">
+        <div class="g-conbox-colleft">
+            <div class="homem-title-wrap">
+                <a class="more" href="../disclosure/notice/" target="_blank">æ´å¤<span class="glyphicon glyphicon-menu-right"></span></a>
+                <h2 class="homem-title">æ·±äº¤æå¬å</h2>
+            </div>
+            <div class="g-conbox">
+
+                <div class="article-list h282">
+                  <ul class="newslist date-left">
+                    <script>
+                      var jsonUrl="/disclosure/notice/index.html";
+                      getRelatedColumnJson({
+                        url: mainDomainPath() + jsonUrl.replace(/.html/,'.json'),
+                        length: 6
+                      });
+                    </script>
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div class="g-conbox-colright">
+            <div class="homem-title-wrap">
+                <a class="more" href="../disclosure/listed/notice/" target="_blank">æ´å¤<span class="glyphicon glyphicon-menu-right"></span></a>
+                <h2 class="homem-title">ä¸å¸å¬å¸å¬å</h2>
+            </div>
+            <div class="g-conbox">
+
+                <div class="article-list h282 loadwait_disc">
+                    <ul class="notice-list newslist date-left"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- æ¬æå¬å ç»æ-->
+
+<div class="homem-eduentrance-container">
+    <div class="g-container clearfix">
+        <div class="edu-lbox">
+            <div class="index-publicadvice index-zcz">
+                <a  href="http://listing.szse.cn" target="_blank">
+                <div class="content">
+                       <span class="glyphicon glyphicon-menu-right"></span>
+                       <span class="name">æ³¨åå¶</h2>
+                   </div>
+                </a>
+            </div>
+        </div>
+        <div class="edu-rbox">
+            <div class="index-educon">
+                <a href="http://investor.szse.cn" target="_blank">
+                    <img src="http://res.static.szse.cn/modules/index/images/indexedubgnew.jpg" />
+                    <div class="indexad1-txt">
+                        <div class="content">
+                            <h2>æèµèæè²</h2>
+                            <p>Investor education zone</p>
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="edu-lbox">
+            <div class="index-publicadvice">
+                <a  href="../lawrules/publicadvice/" target="_blank" class="index-publicadvice-link">
+                    <div class="index-publicadvice-con">
+                        <img src="http://res.static.szse.cn/modules/index/images/index_iconmsg.png" />
+                        <span>å¬å¼å¾æ±æè§</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="edu-lbox">
+          <div class="index-publicadvice tran">
+            <a href="../transparency/index/" target="_blank" class="index-publicadvice-link">
+              <div class="index-publicadvice-con">
+                <img src="http://res.static.szse.cn/modules/index/images/tran_icon.png" />
+                <span>é³åçç®¡ éææå¡</span>
+              </div>
+            </a>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="homem-hangqing-wrap">
+    <div class="g-container">
+        <div class="homem-hangqing clearfix">
+            <div class="hangqing-chart pull-left">
+                <a class="more " href="../market/overview/?tabkey=tab2" target="_blank ">æ´å¤<span class="glyphicon glyphicon-menu-right"></span></a>
+                <div class="stock-list-wrap pull-right">
+                    <span class="stock-list"></span>
+                </div>
+                <div class="home-trend-tabs">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="javascript:void(0)">ææ°è¡æ</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">å°åºæäº¤ç»è®¡</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-panells active">
+                        <div class="trend-detail-wrap">
+                            <div class="detail-info">
+                                <script id="trendTemplate" type="text/html">
+                                    <span class="newest <%= newIsDown ? 'new-down' : null %>"><%= now === null ? '--' : now %></span>
+                                    <ul class="item-right">
+                                        <li>
+                                            <span>æäº¤é(<%= volumeUnit %>æ)</span>
+                                            <span class="blue"><%= volume === null ? '--' : volume %></span>
+                                            <br/>
+                                            <span>æäº¤é¢(<%= amountUnit %>å)</span>
+                                            <span class="blue"><%= amount === null ? '--' : amount %></span>
+                                        </li>
+                                        <li class="<%= newIsDown ? 'new-down' : null %>">
+                                            <span>æ¶¨è·</span>
+                                            <span class="value"><%= delta === null ? '--' : delta %></span>
+                                            <br/>
+                                            <span>æ¶¨å¹</span>
+                                            <span class="value"><%= deltaPercent === null ? '--' : deltaPercent + '%' %></span>
+                                        </li>
+                                        <li class="<%= openIsDown ? 'open-down' : null %>">
+                                            <span>ä»å¼</span>
+                                            <span class="value"><%= open === null ? '--' : open %></span>
+                                            <br/>
+                                            <span>æ¨æ¶</span>
+                                            <span class="blue"><%= close === null ? '--' : close %></span>
+                                        </li>
+                                        <li>
+            <span class="<%= highIsDown ? 'high-down' : null %>">
+                <span>æé«</span>
+                <span class="value"><%= high === null ? '--' : high %></span>
+            </span>
+                                            <br/>
+            <span class="<%= lowIsDown ? 'low-down' : null %>">
+                <span>æä½</span>
+                <span class="value"><%= low === null ? '--' : low %></span>
+            </span>
+                                        </li>
+                                    </ul>
+                                </script>
+                            </div>
+                        </div>
+                        <ul class="pic-tabs clearfix">
+                            <li class="active">
+                                <a href="javascript: void(0);">åæ¶</a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);">æ¥çº¿</a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);">å¨çº¿</a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);">æçº¿</a>
+                            </li>
+                        </ul>
+                        <div class="tabs-content">
+                            <div id="minutely" class="tab-panel active"></div>
+                            <div id="daily" class="tab-panel"></div>
+                            <div id="weekly" class="tab-panel"></div>
+                            <div id="monthly" class="tab-panel"></div>
+                        </div>
+                    </div>
+                    <div class="tab-panells pt20">
+                        <div class="map-wrap"></div>
+                        <div class="notes">æ°æ®ç»è®¡èå´åå«å­æå­è¯ã</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="sep-line"></div>
+            <div class="hangqing-tabs pull-right">
+                <ul class="nav nav-tabs" style="display:none;">
+                    <li class="active overall">
+                        <a href="javascript: void(0);" class="tab">å¸åºæ»è²</a>
+                    </li>
+                    <li class="mainboard"> 
+                        <a href="javascript: void(0);" class="tab">ä¸»æ¿</a>
+                    </li>
+                    <li class="sme" style="display:none;">
+                        <a href="javascript: void(0);" class="tab">ä¸­å°ä¼ä¸æ¿</a>
+                    </li>
+                    <li class="chinext">
+                        <a href="javascript: void(0);" class="tab">åä¸æ¿</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <script id="basicIndexTemplate" type="text/html">
+                        <div class="tab-pane fade in <%- i == 0 ? 'active' : null %>">
+                            <a href="<%= url %>" target="blank">
+                                <ul class="list clearfix">
+                                    <% _.forEach(data, function(item, i) { %>
+                                    <li>
+                                        <i class="hqicon hqicon-<%= item.type %> hqicon<%= i+1 %>"></i>
+                                        <div class="tit">
+                                            <%= item.name %>    
+                                        </div>
+                                        <div class="val">
+                                            <%= item.value %>
+                                        </div>
+                                    </li>
+                                    <% }) %>
+                                </ul>
+                                <div class="notes" style="display:<%- isShowNote===true ? 'block;' : 'none;' %>">æ°æ®ç»è®¡èå´åå«å­æå­è¯ã</div>
+                            </a>
+                        </div>
+                    </script>
+                    <!--  <div id="" class="tab-pane fade in active">
+                        <div class="tabcon">
+                            <div class="tip">
+                                æªæ­¢å°2017å¹´09æ10æ¥æ¶å¸æ¶
+                            </div>
+                            <ul class="list clearfix">
+                                <li>
+                                    <i class="hqicon hqicon1"></i>
+                                    <div class="tit">æ»å¸å¼ï¼äº¿åï¼</div>
+                                    <div class="val">228,653</div>
+                                </li>
+                                <li>
+                                    <i class="hqicon hqicon2"></i>
+                                    <div class="tit">æµéå¸å¼ï¼äº¿åï¼</div>
+                                    <div class="val">228,653</div>
+                                </li>
+                                <li>
+                                    <i class="hqicon hqicon3"></i>
+                                    <div class="tit">ä¸å¸å¬å¸ï¼å®¶ï¼</div>
+                                    <div class="val">228,653</div>
+                                </li>
+                                <li>
+                                    <i class="hqicon hqicon4"></i>
+                                    <div class="tit">ä¸å¸è¯å¸ï¼åªï¼</div>
+                                    <div class="val">228,653</div>
+                                </li>
+                                <li>
+                                    <i class="hqicon hqicon5"></i>
+                                    <div class="tit">å¹³åçå©çï¼åï¼</div>
+                                    <div class="val">228,653</div>
+                                </li>
+                                <li>
+                                    <i class="hqicon hqicon6"></i>
+                                    <div class="tit">è¡ç¥¨æäº¤éé¢ï¼äº¿åï¼</div>
+                                    <div class="val">228,653</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="szsehelpbg-wrap">
+    <div class="g-container">
+        <div class="homem-quickentrance">
+            <div class="homem-title-wrap">
+                <h2 class="homem-title">å¿«éå¥å£</h2>
+            </div>
+            <div class="homem-entrance-list hidden-xs homem-entrancelist-pc">
+                <div class="morebuttons">
+                    <a class="arrow-left disabled"><span class="glyphicon glyphicon-menu-left"></span></a>
+                    <a class="arrow-right"><span class="glyphicon glyphicon-menu-right"></span></a>
+                </div>
+                <div class="homequickentrance-slide">
+                    <div class="swiper-device">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <ul class="list clearfix">
+                                        <li>
+                                            <a href="http://listing.szse.cn" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon1"></div></div>
+                                                <div class="tit">æ³¨åå¶</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.cninfo.com.cn/eipo/index.jsp" target="_blank">
+                                                  <div class="sicon-wrap"><div class="sicon sicon2"></div></div>
+                                                  <div class="tit">IPOä¿¡æ¯æ¥è¯¢</div>
+                                                  <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                          <a href="../marketServices/technicalservice/" target="_blank">
+                                                  <div class="sicon-wrap"><div class="sicon sicon3"></div></div>
+                                                  <div class="tit">ææ¯æå¡</div>
+                                                  <i class="sbtn"></i>
+                                          </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://ebs.szse.cn/" target="_blank">
+                                                 <div class="sicon-wrap"><div class="sicon sicon16"></div></div>
+                                                  <div class="tit">éè´­ä¿¡æ¯</div>
+                                                  <i class="sbtn"></i>
+                                              </a>
+                                        </li> 
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide">
+                                    <ul class="list clearfix">
+                                        <li>
+                                            <a href="http://www.szse.cn/szhk/index.html" target="_blank">
+                                                    <div class="sicon-wrap"><div class="sicon sicon4"></div></div>
+                                                    <div class="tit">æ·±æ¸¯é</div>
+                                                    <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                             <a class="itemlink-eipo" href="#" target="_blank">
+                                                 <div class="sicon-wrap"><div class="sicon sicon5"></div></div>
+                                                 <div class="tit">ç½ä¸åè¡å¹³å°</div>
+                                                 <i class="sbtn"></i>
+                                             </a>
+                                        </li>
+                                        <li>
+                                          <a href="../indeal/index/" target="_blank">
+                                                  <div class="sicon-wrap"><div class="sicon sicon6"></div></div>
+                                                  <div class="tit">åå¹äº¤æè­¦ç¤ºå±</div>
+                                                  <i class="sbtn"></i>
+                                              </a>
+                                        </li>
+                                        <li>
+                                          <a href="http://dr.szse.cn" target="_blank">
+                                               <div class="sicon-wrap"><div class="sicon_gdr"></div></div>
+                                               <div class="tit">äºèäºéå­æå­è¯</div>
+                                               <i class="sbtn"></i>
+                                          </a>
+                                      </li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide">
+                                    <ul class="list clearfix">
+                                        <li>
+                                            <a class="itemlink-ydyl" href="#" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon7"></div></div>
+                                                <div class="tit">ä¸å¸¦ä¸è·¯</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                          <a href="../marketServices/training/introduce/" target="_blank">
+                                               <div class="sicon-wrap"><div class="sicon sicon8"></div></div>
+                                               <div class="tit">å¹è®­æå¡</div>
+                                               <i class="sbtn"></i>
+                                          </a>
+                                        </li>
+                                        <li>
+                                              <a href="http://www.cninfo.com.cn/fwsq/hq/yw-2.htm" target="_blank">
+                                                  <div class="sicon-wrap"><div class="sicon sicon9"></div></div>
+                                                  <div class="tit">è¡æä¿¡æ¯ææ</div>
+                                                  <i class="sbtn"></i>
+                                              </a>
+                                        </li>
+                                        <li>
+                                          <a href="https://www.chinahtz.com/park/home" target="_blank">
+                                              <div class="sicon-wrap"><div class="sicon_krt"></div></div>
+                                              <div class="tit">ç§èéV-Next</div>
+                                              <i class="sbtn"></i>
+                                          </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide">
+                                    <ul class="list clearfix">
+                                        <li>
+                                            <a href="../option/" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon10"></div></div>
+                                                <div class="tit">è¡ç¥¨ææ</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.preipo.org.cn" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon11"></div></div>
+                                                <div class="tit">åå¤ä¼ä¸å¹è²</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                          <a href="../aboutus/online/" target="_blank">
+                                                  <div class="sicon-wrap"><div class="sicon sicon12"></div></div>
+                                                  <div class="tit">å¨çº¿æè</div>
+                                                  <i class="sbtn"></i>
+                                          </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.szte.com" target="_blank">
+                                                    <div class="sicon-wrap"><div class="sicon sicon_kjzx"></div></div>
+                                                    <div class="tit">ç§äº¤ä¸­å¿</div>
+                                                    <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide">
+                                    <ul class="list clearfix">
+                                        <li>
+                                            <a href="https://smehome.szse.cn/" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon13"></div></div>
+                                                <div class="tit">ä¸­å°ä¼ä¸ä¹å®¶</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://czxy.homeforsmes.com.cn" target="_blank">
+                                                 <div class="sicon-wrap"><div class="sicon sicon14"></div></div>
+                                                 <div class="tit">æé¿å­¦é¢</div>
+                                                 <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../marketServices/message/ca/" target="_blank">
+                                                 <div class="sicon-wrap"><div class="sicon sicon15"></div></div>
+                                                 <div class="tit">CAè¯ä¹¦æå¡</div>
+                                                 <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../sustainablefinance/" target="_blank">
+                                                 <div class="sicon-wrap"><div class="sicon sicon17"></div></div>
+                                                 <div class="tit">å¯æç»­éè</div>
+                                                 <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pagination"></div>
+                    </div>
+                </div>
+
+              
+            </div>
+            <div class="homem-entrance-list visible-xs">
+                <div class="homem-entrance-mobile">
+                    <div class="swiper-device">
+                        <a class="arrow-left"></a>
+                        <a class="arrow-right"></a>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <ul class="list clearfix">
+                                        <li>
+                                            <a href="http://listing.szse.cn" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon1"></div></div>
+                                                <div class="tit">æ³¨åå¶</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.szse.cn/szhk/index.html" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon4"></div></div>
+                                                <div class="tit">æ·±æ¸¯é</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.cninfo.com.cn/eipo/index.jsp" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon2"></div></div>
+                                                <div class="tit">IPOä¿¡æ¯æ¥è¯¢</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="itemlink-eipo" href="#" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon5"></div></div>
+                                                <div class="tit">ç½ä¸åè¡å¹³å°</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../marketServices/technicalservice/" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon3"></div></div>
+                                                <div class="tit">ææ¯æå¡</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../indeal/index/" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon6"></div></div>
+                                                <div class="tit">åå¹äº¤æè­¦ç¤ºå±</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="itemlink-ydyl" href="#" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon7"></div></div>
+                                                <div class="tit">ä¸å¸¦ä¸è·¯</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../option/" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon10"></div></div>
+                                                <div class="tit">è¡ç¥¨ææ</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../marketServices/training/introduce/" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon8"></div></div>
+                                                <div class="tit">å¹è®­æå¡</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.preipo.org.cn" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon11"></div></div>
+                                                <div class="tit">åå¤ä¼ä¸å¹è²</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide">
+                                    <ul class="list clearfix">
+                                        <li>
+                                            <a href="http://www.cninfo.com.cn/fwsq/hq/yw-2.htm" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon9"></div></div>
+                                                <div class="tit">è¡æä¿¡æ¯ææ</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../aboutus/online/" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon12"></div></div>
+                                                <div class="tit">å¨çº¿æè</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://smehome.szse.cn/" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon13"></div></div>
+                                                <div class="tit">ä¸­å°ä¼ä¸ä¹å®¶</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://ebs.szse.cn/" target="_blank">
+                                               <div class="sicon-wrap"><div class="sicon sicon16"></div></div>
+                                                <div class="tit">éè´­ä¿¡æ¯</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="https://czxy.homeforsmes.com.cn" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon14"></div></div>
+                                                <div class="tit">æé¿å­¦é¢</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://dr.szse.cn" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon_gdr"></div></div>
+                                                <div class="tit">äºèäºéå­æå­è¯</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../marketServices/message/ca/" target="_blank">
+                                                <div class="sicon-wrap"><div class="sicon sicon15"></div></div>
+                                                <div class="tit">CAè¯ä¹¦æå¡</div>
+                                                <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.chinahtz.com/park/home" target="_blank">
+                                              <div class="sicon-wrap"><div class="sicon_krt"></div></div>
+                                              <div class="tit">ç§èéV-Next</div>
+                                              <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.szte.com" target="_blank">
+                                              <div class="sicon-wrap"><div class="sicon_kjzx"></div></div>
+                                              <div class="tit">ç§äº¤ä¸­å¿</div>
+                                              <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="../sustainablefinance/" target="_blank">
+                                              <div class="sicon-wrap"><div class="sicon sicon17"></div></div>
+                                              <div class="tit">å¯æç»­éè</div>
+                                              <i class="sbtn"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+       <div class="homem-buss-wrap">
+           <div class="homem-title-wrap">
+               <h2 class="homem-title">ä¸å¡ä¸åº</h2>
+           </div>
+           <div class="hidden-xs homem-busslist-pc">
+               <div class="morebuttons">
+                   <a class="arrow-left disabled"><span class="glyphicon glyphicon-menu-left"></span></a>
+                   <a class="arrow-right"><span class="glyphicon glyphicon-menu-right"></span></a>
+               </div>
+               <div class="homem-buss-area">
+                   <div class="homebuss-slide ">
+                       <div class="swiper-device">
+                           <div class="swiper-container">
+                               <div class="swiper-wrapper">
+                                   <div class="swiper-slide">
+                                       <ul class="list clearfix">
+                                            <li>
+                                                <a href="https://biz.szse.cn/ras" target="_blank">
+                                                    <span class="tit">åè¡ä¸å¸å®¡æ ¸ä¸åº</span>
+                                                </a>
+                                            </li>
+                                           <li>
+                                               <a href="https://biz.szse.cn/media/login.html" target="_blank">
+                                                    <span class="tit">åªä½ä¸å¡ä¸åº</span>
+                                                </a>
+                                           </li>
+                                       </ul>
+                                   </div>
+                                   <div class="swiper-slide">
+                                       <ul class="list clearfix">
+                                            <li>
+                                                <a class="itemlink-szsePLE" href="#" target="_blank">
+                                                        <span class="tit">æä¸å¸ä¼ä¸æå¡ä¸åº</span>
+                                                    </a>
+                                            </li>
+                                           <li>
+                                               <a href="https://biz.szse.cn/mbr/index.html" target="_blank">
+                                                    <span class="tit">ä¼åä¸å¡ä¸åº</span>
+                                                </a>
+                                           </li>
+                                       </ul>
+                                   </div>
+                                   <div class="swiper-slide">
+                                       <ul class="list clearfix">
+                                            <li>
+                                                <a href="https://biz.szse.cn/lsd/index.html?usepassword=true" target="_blank">
+                                                    <span class="tit">ä¸»æ¿ä¸å¡ä¸åº</span>
+                                                </a>
+                                            </li>
+                                           <li>
+                                               <a href="https://biz.szse.cn/fund/index.html" target="_blank">
+                                                    <span class="tit">åºéä¸å¡ä¸åº</span>
+                                                </a>
+                                           </li>
+                                       </ul>
+                                   </div>
+                                   <div class="swiper-slide">
+                                       <ul class="list clearfix">
+                                            <li>
+                                                <a href="https://biz.szse.cn/nmk/index.html?usepassword=true" target="_blank">
+                                                        <span class="tit">åä¸æ¿ä¸å¡ä¸åº</span>
+                                                </a>
+                                            </li>
+                                           <li>
+                                               <a href="https://biz.szse.cn/mbr" target="_blank">
+                                                  <span class="tit">æç®¡äººä¸å¡ä¸åº</span>
+                                              </a>
+                                           </li>
+                                       </ul>
+                                   </div>
+                                   <div class="swiper-slide">
+                                       <ul class="list clearfix">
+                                            <li>
+                                                <a href="https://biz.szse.cn/msh/login.html" target="_blank">
+                                                <span class="tit">è¡ä¸ä¸å¡ä¸åº</span>
+                                            </a>
+                                            </li>
+                                           <li>
+                                               <a href="https://biz.szse.cn/fic" target="_blank">
+                                                  <span class="tit">åºå®æ¶çåç§ä¸å¡ä¸åº</span>
+                                              </a>
+                                           </li>
+                                       </ul>
+                                   </div>
+                                   <div class="swiper-slide">
+                                       <ul class="list clearfix">
+                                            <li>
+                                                <a href="https://biz.szse.cn/sponsor/slogin" target="_blank">
+                                                    <span class="tit">ä¿èä¸å¡ä¸åº</span>
+                                                </a>
+                                            </li>
+                                           <li>
+                                               <a href="https://sso.szse.cn/sso/login?loa=40&auth=40&service=https%3A%2F%2Fbiz.szse.cn%2Foption%2Findex.html" target="_blank">
+                                                    <span class="tit">è¡ç¥¨ææä¸åº</span>
+                                                </a>
+                                           </li>
+                                       </ul>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="pagination"></div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="visible-xs homem-busslist-mobile">
+               <div class="homem-buss-area">
+                   <ul class="list clearfix">
+                        <li>
+                            <a href="https://biz.szse.cn/ras" target="_blank">
+                                                                <span class="tit">åè¡ä¸å¸å®¡æ ¸ä¸åº</span>
+                                                            </a>
+                        </li>
+                       <li>
+                           <a class="itemlink-szsePLE" href="#" target="_blank">
+                                                             <span class="tit">æä¸å¸ä¼ä¸æå¡ä¸åº</span>
+                                                         </a>
+                       </li>
+                       <li>
+                           <a href="https://biz.szse.cn/lsd/index.html?usepassword=true" target="_blank">
+                                                             <span class="tit">ä¸»æ¿ä¸å¡ä¸åº</span>
+                                                         </a>
+                       </li>
+                       <li>
+                           <a href="https://biz.szse.cn/nmk/index.html?usepassword=true" target="_blank">
+                                                             <span class="tit">åä¸æ¿ä¸å¡ä¸åº</span>
+                                                         </a>
+                       </li>
+                       <li>
+                           <a href="https://biz.szse.cn/msh/login.html" target="_blank">
+                                                             <span class="tit">è¡ä¸ä¸å¡ä¸åº</span>
+                                                         </a>
+                       </li>
+                       <li>
+                           <a href="https://biz.szse.cn/media/login.html" target="_blank">
+                                                             <span class="tit">åªä½ä¸å¡ä¸åº</span>
+                                                         </a>
+                       </li>
+                       <li>
+                           <a href="https://biz.szse.cn/mbr/index.html" target="_blank">
+                                                             <span class="tit">ä¼åä¸å¡ä¸åº</span>
+                                                         </a>
+                       </li>
+                       <li>
+                           <a href="https://biz.szse.cn/fund/index.html" target="_blank">
+                                                             <span class="tit">åºéä¸å¡ä¸åº</span>
+                                                         </a>
+                       </li>
+                       <li>
+                           <a href="https://biz.szse.cn/mbr" target="_blank">
+                                                             <span class="tit">æç®¡äººä¸å¡ä¸åº</span>
+                                                         </a>
+                       </li>
+                       <li>
+                           <a href="https://biz.szse.cn/fic" target="_blank">
+                                                             <span class="tit">åºå®æ¶çåç§ä¸å¡ä¸åº</span>
+                                                         </a>
+                       </li>
+                       <li>
+                           <a href="https://biz.szse.cn/sponsor/slogin" target="_blank">
+                                                             <span class="tit">ä¿èä¸å¡ä¸åº</span>
+                                                         </a>
+                       </li>
+                       <li>
+                           <a href="https://sso.szse.cn/sso/login?loa=40&auth=40&service=https%3A%2F%2Fbiz.szse.cn%2Foption%2Findex.html" target="_blank">
+                                <span class="tit">è¡ç¥¨ææä¸åº</span>
+                            </a>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+        
+    </div>
+</div>
+<script>
+  changeVertion('/common/js/toggleBig5.js', 'js');
+  navMenuAJAX('/application/publicindex/footer/index.html','/application/publicindex/footer/index.html', 'footer','www');
+  addComJsFile();
+</script>
+<script>
+ if(!isDevModel){
+        changeVertion('/lib/echarts/3.x/echarts.js', 'js');
+        changeVertion('/lib/echarts/china.js', 'js');
+        changeVertion('/modules/marketdata/trend/js/kMap.min.js', 'js');
+    }else {
+        changeVertion('/lib/echarts/3.x/echarts.js', 'js');
+        changeVertion('/lib/echarts/china.js', 'js');
+        changeVertion('/modules/marketdata/trend/js/mLineChart.js', 'js');
+        changeVertion('/modules/marketdata/trend/js/kLineChart.js', 'js');
+        changeVertion('/modules/marketdata/trend/js/map.js', 'js');
+    }
+
+</script>
+<script>
+  (function () {
+    if (!window.location.origin) {
+      window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+    }
+
+    var reg = /^http(s)?:\/\/([a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?)/;
+    var channelCode = 'index';
+    var domainArr = [];
+    $.each(pathObj, function (i, v) {
+      domainArr.push(v);
+    });
+    domainArr.push.apply(domainArr, ["http://lefu.szse.cn", "https://lefu.szse.cn", "http://res.szse.cn"]);
+    $('.visitsNum a').each(function (index) {
+      var domain = $(this).attr('href').match(reg) ? $(this).attr('href').match(reg)[0] : '';
+      if (domain && $.inArray(domain, domainArr) < 0) {
+        $(this).click(function () {
+          $.when(ajaxRequest({
+            url: window.location.origin + '/index/visits/index.html?url=' + $(this).attr('href') + '&channel=' + channelCode
+          })).done(function (data) {
+          });
+        })
+      }
+
+    });
+
+
+
+  })();
+
+</script>
+<script>
+    changeVertion('/lib/Swiper-2.7.6/idangerous.swiper.min.js','js');
+    changeVertion('/modules/index/js/index.js','js');
+</script>
+<script>
+  changeVertion('/common/js/grayscale.js', 'js');
+</script>
+
+<script>
+  (function () {
+    if (~[10, 11].indexOf(document.documentMode) && !~location.host.indexOf('big5') && document.documentElement.className.indexOf('grayscale') > -1) {
+      var imgsList = document.querySelectorAll('img[src*="//docs"],img[src*="//res"]')
+
+      for (var i = 0; i < imgsList.length; i++) {
+        var src = imgsList[i].src;
+
+        src = src.split('//')[1];
+        src = src.substring(src.indexOf('/'));
+        imgsList[i].src = src;
+      }
+    }
+  })();
+
+  if (~[10, 11].indexOf(document.documentMode) && !~location.host.indexOf('big5') && document.documentElement.className.indexOf('grayscale') > -1) {
+    window.addEventListener('load', function () {
+      if (typeof isShowCoverImgFlag !== 'undefined') {
+        window.addEventListener('grayscaleEvent', function (e) {
+          setTimeout(function () {
+            grayscale(document.documentElement);
+          }, 1500)
+        })
+      } else {
+        grayscale(document.documentElement);
+      }
+
+    });
+
+  }
+
+
+</script>
+</body>
