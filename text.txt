@@ -1,0 +1,22 @@
+User story 1: MCP Agent which can get the European Securities and Markets Authority (ESMA) documents shared below from Website: https://www.esma.europa.eu/  for Document Summarization and comparison in a specified Bucket
+
+· MiFID II (Markets in Financial Instruments Directive II) and MiFIR (Markets in Financial Instruments Regulation): These are cornerstones of EU financial markets regulation, covering everything from trading venues to investor protection.
+
+· Prospectus Regulation: Governs the information provided to investors when securities are offered to the public or admitted to trading on a regulated market.
+
+· Market Abuse Regulation (MAR): Aims to prevent market abuse (insider trading, market manipulation) across EU financial markets.
+
+· Market in Crypto Assets Regulation (MiCA): New regulation for crypto-assets.
+
+
+
+
+
+
+
+User Story 2 : MCP Agent which can get documents from China Securities Regulatory Commission (CSRC) for document summarization and comparison in a specified Bucket
+
+Website: While official English versions can be harder to find, the Chinese website is http://www.csrc.gov.cn/  (you may need to use translation tools).
+
+Document : The Securities Law of the People's Republic of China: This is the fundamental law governing the issuance and trading of securities in China. (You might find translated versions on legal information sites like AsianLII or through major law firms specializing in China).
+
