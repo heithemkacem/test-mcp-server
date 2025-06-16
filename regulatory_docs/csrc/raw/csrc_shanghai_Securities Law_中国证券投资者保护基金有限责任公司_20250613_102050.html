@@ -1,0 +1,1205 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/sipf_ico.png" rel="shortcut icon">
+<title>中国证券投资者保护基金有限责任公司</title>
+<script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<link href="/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"> 
+    <!-- function browserRedirect() {
+                var sUserAgent = navigator.userAgent.toLowerCase();
+                var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+                var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+                var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+                var bIsAndroid = sUserAgent.match(/android/i) == "android";
+                var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+                var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                    //跳转移动端页面
+                    window.location.href="http://finance.sipf.com.cn/finance/app/mobile/index";
+                }             
+    }
+    browserRedirect(); -->
+		
+var browser=navigator.appName 
+var b_version=navigator.appVersion 
+var version=b_version.split(";"); 
+var trim_Version=version[1].replace(/[ ]/g,""); 
+if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0") 
+{ 
+alert("您好，您的浏览器版本过低，为保证最佳效果，请您使用IE7及以上版本浏览器。"); 
+} 
+</script>
+<!--对联代码开始-->
+
+
+<script language="javascript" type="text/javascript">     //<![CDATA[
+    var adLeftSrc = "/images/ts.png"  //左图片地址
+    var adLeftFlash = ""
+    var adLeftHref = "http://www.sipf.com.cn/sy/ttzyxw/2022/11/14732.shtml" //左文章地址
+    var adLeftWidth = 92
+    var adLeftHeight = 400
+    var adRightSrc = "/images/ts.png"//右图片地址
+    var adRightFlash = ""
+    var adRightHref = "http://www.sipf.com.cn/sy/ttzyxw/2022/11/14732.shtml"  //右文章地址
+    var adRightWidth = 92
+    var adRightHeight = 400
+    var marginTop = 200 //在这里更改距离浏览器底端的高度
+    var marginLeft = 15//在这里更改距离浏览器右端的高度
+    var navUserAgent = navigator.userAgent
+    function load(){
+     judge();
+     move();
+    }
+    function move() {
+     judge();
+     setTimeout("move();",80)
+    }
+    function judge(){
+     if (navUserAgent.indexOf("Firefox") >= 0 || navUserAgent.indexOf("Opera") >= 0) {
+      if (adLeftSrc != "") {document.getElementById("adLeftFloat").style.top = (document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop) + ((document.body.clientHeight > document.documentElement.clientHeight)?document.documentElement.clientHeight:document.body.clientHeight) - adLeftHeight - marginTop + 'px';}
+      if (adRightSrc != "") {
+       document.getElementById("adRightFloat").style.top = (document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop) + ((document.body.clientHeight > document.documentElement.clientHeight)?document.documentElement.clientHeight:document.body.clientHeight) - adRightHeight - marginTop + 'px';
+       document.getElementById("adRightFloat").style.left = ((document.body.clientWidth > document.documentElement.clientWidth)?document.body.clientWidth:document.documentElement.clientWidth) - adRightWidth - marginLeft + 'px';
+      }
+     }
+     else{
+      if (adLeftSrc != "") {document.getElementById("adLeftFloat").style.top = (document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop) + ((document.documentElement.clientHeight == 0)?document.body.clientHeight:document.documentElement.clientHeight) - adLeftHeight - marginTop + 'px';}
+      if (adRightSrc != "") {
+       document.getElementById("adRightFloat").style.top = (document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop) + ((document.documentElement.clientHeight == 0)?document.body.clientHeight:document.documentElement.clientHeight) - adRightHeight - marginTop + 'px';
+       document.getElementById("adRightFloat").style.left = ((document.documentElement.clientWidth == 0)?document.body.clientWidth:document.documentElement.clientWidth) - adRightWidth - marginLeft + 'px';
+      }
+     }
+     if (adLeftSrc != "") {document.getElementById("adLeftFloat").style.left = marginLeft + 'px';}
+    }
+   
+   
+   
+    if (adLeftSrc != "") {
+     if (adLeftFlash == "flash") {
+     document.write("<div id=\"adLeftFloat\" style=\"position: absolute;width:" + adLeftWidth + ";height:100px; font-size:12px;\"><img src=\"images/close.gif\" width=\"12\" border=\"0\" height=\"12\" onMousedown=\"javascript:close_float_left();void(0);\";>");
+    
+      document.write("<div id=\"Float\" style=\"width:" + adLeftWidth + ";\"><embed src=\"" + adLeftSrc + "\" quality=\"high\" width=\"" + adLeftWidth + "\" height=\"" + adLeftHeight + "\" type=\"application/x-shockwave-flash\"></embed></div>");
+      document.write("</div>");
+     }
+     else{
+     document.write("<div id=\"adLeftFloat\" style=\"position: absolute;width:" + adLeftWidth + ";height:100px; font-size:12px;text-align:left;\"><img src=\"/images/index_img_close_red.jpg\" width=\"12\" border=\"0\" height=\"12\" onMousedown=\"javascript:close_float_left();void(0);\";>");
+    
+      document.write("<div id=\"Float\" style=\"width:" + adLeftWidth + ";\"><a href=\"" + adLeftHref +"\" target=_blank><img src=\"" + adLeftSrc + "\" width=\"" + adLeftWidth + "\" height=\"" + adLeftHeight + "\" border=\"0\" \></a></div>");
+      document.write("</div>");
+     }
+    }
+   
+   
+   
+    if (adRightSrc != "") {
+     if (adRightFlash == "flash") {
+     document.write("<div id=\"adRightFloat\" style=\"position: absolute;width:" + adRightWidth + ";height:100px; font-size:12px;text-align:right;\"><img src=\"images/close.gif\" width=\"12\" border=\"0\" height=\"12\" onMousedown=\"javascript:close_float_right();void(0);\";>");
+    
+      document.write("<div id=\"Float\" style=\"width:" + adRightWidth + ";\"><embed src=\"" + adRightSrc + "\" quality=\"high\" width=\"" + adLeftWidth + "\" height=\"" + adRightHeight + "\" type=\"application/x-shockwave-flash\"></embed></div>");
+      document.write("</div>");
+     }
+     else{
+     document.write("<div id=\"adRightFloat\" style=\"position: absolute;width:" + adRightWidth + ";height:100px; font-size:12px;text-align:right;\"><img src=\"/images/index_img_close_red.jpg\" width=\"12\" border=\"0\" height=\"12\" onMousedown=\"javascript:close_float_right();void(0);\";>");
+    
+      document.write("<div id=\"Float\" style=\"width:" + adRightWidth + ";\"><a href=\"" + adRightHref +"\" target=_blank><img src=\"" + adRightSrc + "\"   width=\"" + adLeftWidth + "\" height=\"" + adRightHeight + "\" border=\"0\" \></a></div>");
+      document.write("</div>");
+     }
+    }
+   
+   
+   
+   
+    load();
+
+function close_float_right(){
+document.getElementById("adRightFloat").style.display="none";} 
+function close_float_left(){
+document.getElementById("adLeftFloat").style.display="none";}   //]]>
+
+</script>
+
+<!--对联代码结束-->
+
+<!--增加以下代码：灰色
+    <style>
+        * {
+            -webkit-filter: grayscale(100%);
+            /* Chrome, Safari, Opera */
+            -ms-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            filter: gray;
+            /* IE 6-9 */
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script src="grayscale.js"></script>
+    <script>
+        $(function() {
+            grayscale(document.body);
+        })
+    </script>
+增加以上代码-->
+
+</head>
+<!--去除春节背景图需要先修改body的class名称为未知名称，然后在注释id为clStyle层和class为border2的层-->
+<body class="AyStyle1" id="AyStyle">
+<!--关闭背景X图片-->
+<!--
+<<DIV title="关闭背景" id="clStyle" onclick="document.getElementById('AyStyle').className='';this.style.display='none'" onmouseover="this.className = 'hover'" onmouseout="this.className = ''" ></DIV>
+-->
+<!--网站顶部露出的部分，为10px-->
+<!--
+<div class="border2"></div>
+-->
+<!-- 通用头部 -->
+   <!-- 头部 -->
+    <div class="header">
+        <div class="logo"><a href=""><img src="/images/logo.png"></a></div>
+
+        <div class="time-box">
+            <div class="today">
+                <div id="linkweb"></div>
+                <script>
+
+var d, s = "";
+var x = new Array("星期日", "星期一", "星期二","星期三","星期四", "星期五","星期六");
+d = new Date();
+s+=d.getFullYear()+"年"+(d.getMonth() + 1)+"月"+d.getDate()+"日 ";
+s+=x[d.getDay()]+"　| <a href='http://big5.sipf.com.cn/SuniT/www.sipf.com.cn/index.shtml'>繁体</a>  &middot; <a href=/NewEN/informationdisclosure/InternationalConferences/index.shtml>English</a>";
+document.writeln(s);
+</script>
+ <!--<a href="http://www.sipf.com.cn/NewEN/aboutsipf/corporateprofile/index.shtml">English</a>-->
+
+            </div>
+        </div>
+        <div class="language">
+           <!-- <a href="http://big5.sipf.com.cn/SuniT/www.sipf.com.cn/index.shtml">繁体</a>  &middot; <a href="http://www.sipf.com.cn/NewEN/informationdisclosure/InternationalConferences/index.shtml">English</a>-->
+
+        </div>
+
+    </div>
+<!-- 导航 -->
+    <div class="navbar">
+        <ul>
+            <li id="home">
+                <a href="/index.shtml" class="fir">首 页</a>
+            </li>
+            <li>
+                <a href="/zjjk/tjsj/index.shtml" class="fir">资金监控</a>
+                <ul class="sub-nav">
+                    <li style="width: 145px;">
+                    <a href="/zjjk/tjsj/index.shtml">统计数据</a>                       
+                    </li>
+                    <li style="width: 145px;">
+                        <a href="https://www.sipf.com.cn/investorservice/security/">投资者资金查询平台</a>
+                    </li>
+                    <li style="width: 145px;">
+                         <a href="https://www.sipf.com.cn/jhpt/security/">监控系统交互平台</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/fxcz/index.shtml" class="fir">风险处置</a>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="/fxcz/zcfg/index.shtml ">法规政策</a>
+                    </li>
+                    <li>
+                        <a href="/fxcz/czal/index.shtml">处置案例</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/zxbc/index.shtml" class="fir">专项补偿</a>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="https://www.sipf.com.cn/zjcc/">紫晶存储</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sipf.com.cn/investor/">欣泰电气</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sipf.com.cn/hlx/">海联讯</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sipf.com.cn/wfsk/">万福生科</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/xzhj/index.shtml" class="fir">承诺金管理</a>
+                <ul class="sub-nav">
+
+
+                     <li>
+                        <a href="https://www.sipf.com.cn/zjcccnj/">紫晶存储</a>
+                    </li>
+                    <li>
+                        <a href="/xzhj/zcfg2/index.shtml">政策法规</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a href="/zqjfdj/index.shtml" class="fir">纠纷调解</a>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="/zqjfdj/jgsz/index.shtml">机构设置</a>
+                    </li>
+                    <li>
+                        <a href="/zqjfdj/stdj/index.shtml">诉调对接</a>
+                    </li>
+                    <li>
+                        <a href="/zqjfdj/tjpt/index.shtml">调解平台</a>
+                    </li>
+                    <li>
+                        <a href="/zqjfdj/flfg/index.shtml">法律法规</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/dcpj/index.shtml" class="fir">调查评价</a>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="/dcpj/zxgz/index.shtml">最新关注</a>
+                    </li>
+                    <li>
+                        <a href="/dcpj/dccg/index.shtml">调查成果</a>
+                    </li>
+                    <li>
+                        <a href="/dcpj/xxzs/index.shtml">信心指数</a>
+                    </li>
+                    <li>
+                        <a href="/dcpj/tbzkpj/index.shtml">投保状况评价</a>
+                    </li>
+                    <li>
+                        <a href="/dcpj/hdzq/index.shtml">互动专区</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/tzzjy/index.shtml" class="fir">投保产品</a>
+                <ul class="sub-nav">
+                    <!--
+                    <li>
+                        <a href="/tzzjy/swgc/index.shtml">双微观察</a>
+                    </li>-->
+                    <li>
+                        <a href="/tzzjy/tjcp/index.shtml">投保视频</a>
+                    </li>
+                     <li>
+                        <a href="/tzzjy/tbmh/index.shtml">投保漫画</a>
+                    </li>
+                    <li>
+                        <a href="/tzzjy/tjjt/index.shtml">投保案例</a>
+                    </li>
+                     <li>
+                        <a href="/tzzjy/tbyj/index.shtml">投保研究</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li>
+                <a href="/gjjl/index.shtml" class="fir">国际交流</a>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="/gjjl/gjhy/index.shtml">国际会议</a>
+                    </li>
+                    <li>
+                        <a href="/gjjl/jlhj/index.shtml">交流互鉴</a>
+                    </li>
+                    <li>
+                        <a href="/gjjl/gjsy/index.shtml">国际视野</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/flfg/index.shtml" class="fir">法律法规</a>
+            </li>
+<!--  -->        
+            <li>
+               <a href="/jbjl/index.shtml" class="fir">举报奖励</a>
+            </li>
+<!--  -->
+            <li>
+                <a href="/gywm/dsczc/index.shtml" class="fir">关于我们</a>
+            </li>
+
+        </ul>
+<!--
+        <div class="tel">
+ <a href="http://gzly.csrc12386.org.cn/sipf">
+            <span class="t1">12386</span>
+            <span class="t2">投资者热线</span>
+</a>
+        </div>
+-->
+    </div>
+
+
+
+
+
+    <!-- banner -->
+    <div class="banner"><img src="/images/banner.jpg"></div>
+
+     
+    <div class="bk20"></div>
+    <!-- main -->
+    <div class="main cl">
+        <div class="index-bar">
+          
+	        <div class="lkhd"><img src="images/lktit_tzzfw.jpg" height="18" width="113" alt=""></div>  <!-- 图片地址 -->
+		<div class="bar-line" style="height:1px"></div>
+
+                <div style="margin-bottom:10px"><a href="/tbbskt/index.shtml"><img src="images/zzbbs.jpg" height="69" width="206" alt=""></a></div>
+
+
+                <div class="bar-link">
+			    <a href="https://www.sipf.com.cn/survey/pc/query/evaluation" class="item2" >调查评价结果查询</a> <!--   <a href="http://www.lediaocha.com/pc/s/tqyy35" class="item2" >投保状况评价</a>   -->
+                </div>
+	        <div class="bar-link">
+                <a href="https://www.sipf.com.cn/investorservice/security/" class="item1">投资者资金<br>查询平台</a>
+                </div>
+            
+<!--           
+                <div class="bar-link">
+                  <a href="http://gzly.csrc12386.org.cn/sipf" class="item3">12386留言板</a>
+                </div>
+-->          
+  
+                <div class="bar-link">
+                  <a href="/jbjl/index.shtml" class="item3">举报奖励</a>
+                </div>
+  
+
+                <div class="bar-link">
+                  <a href="/zqjfdj/index.shtml" class="item7">证券纠纷调解</a>
+                </div>
+                <div class="bar-line" style="height:1px"></div>
+		     <div class="code"><a href="/weibo.shtml"><img src="/images/code.jpg" height="70" width="206" alt="" /></a></div>
+                <div class="bar-line" style="height:1px"></div>
+	        
+		<div class="lkhd"><img src="images/lktit_wsyw.jpg" height="18" width="113" alt="" ></div>  <!--	新加的图片-->
+                <div class="bar-line" style="height:1px"></div>
+                 <div class="bar-link">
+                <a href="https://www.sipf.com.cn/jjcj/login" class="item4">投保基金<br>筹集报送系统</a><!-- https://www.sipf.com.cn:7002/bin/DataReport?m=a http://www.sipf.com.cn:8081/jjcj/login-->
+            </div>
+            <div class="bar-link">
+                <a href="http://www.sipf.com.cn/jhpt/security/" class="item5">监控系统<br>交互平台</a>
+            </div>
+            <div class="bar-link">
+                <a href="https://www.sipf.com.cn/survey/pc/index" class="item6">投资者调查<br>会员区</a>
+            </div>
+                <div class="bar-line" style="height:1px"></div>
+		     <div class="code"><a href="/dcpj/hdzq/2021/08/13705.shtml"><img src="/images/dcapp.png" height="70" width="206" alt="" /></a></div>
+                <div class="bar-line" style="height:1px"></div>
+<!--       
+            <div class="member-wrap">
+                <div class="hd">投资者调查会员区</div>
+                <div class="form-box">
+                    <input type="text" value="用户名" class="text" />
+                    <input type="text" value="密码" class="text" />
+                    <input type="submit" value="登 录" class="btn"  />
+                </div>
+                 <div class="links"><a href="">忘记密码</a><a href="">新户注册</a></div>
+            </div>
+-->
+                <div class="lkhd"><img src="images/lktit1.png" height="18" width="68" alt="" /></div>
+                <div class="bar-line" style="height:1px" ></div>
+
+            <div class="link">
+                                <div class="lk-bd">
+                    <select name="" onchange="window.open(this.options[this.selectedIndex].value,target='_blank')">
+<option value="" selected = "selected">主管部门</option>
+     <option value="http://www.csrc.gov.cn">中国证券监督管理委员会</option><option value="http://www.mof.gov.cn">中华人民共和国财政部</option><option value="http://www.pbc.gov.cn/">中国人民银行</option>
+
+
+
+
+
+                    </select>
+                    <div class="bk10"></div>
+                    <select name="" onchange="window.open(this.options[this.selectedIndex].value,target='_blank')">
+<option value="" selected = "selected">交易所及会管单位</option>
+     <option value="http://www.sse.com.cn/">上海证券交易所</option><option value="http://www.szse.cn/">深圳证券交易所</option><option value="http://www.shfe.com.cn/">上海期货交易所</option><option value="http://www.czce.com.cn">郑州商品交易所</option><option value="http://www.dce.com.cn">大连商品交易所</option><option value="http://www.cffex.com.cn/">中国金融期货交易所</option><option value="http://www.chinaclear.cn">中国证券登记结算有限责任公司</option><option value="http://www.csf.com.cn">中国证券金融股份有限公司</option><option value="http://www.cfmmc.com">中国期货市场监控中心有限责任公司</option><option value="http://www.neeq.cc">全国中小企业股份转让系统有限责任公司</option><option value="http://www.sac.net.cn">中国证券业协会</option><option value="http://www.cfachina.org">中国期货业协会</option><option value="http://www.amac.org.cn">中国证券投资基金业协会</option><option value="http://www.capco.org.cn">中国上市公司协会</option><option value="https://www.csdata.cn">中证数据有限责任公司</option><option value="http://www.csits.org.cn/">中证信息技术服务有限责任公司</option><option value="http://www.isc.com.cn/">中证中小投资者服务中心有限责任公司</option>
+
+
+
+
+                    </select>
+                </div>
+            </div>
+
+           
+
+            
+
+        </div>
+        <div class="main-auto">
+         <!-- ?? -->
+            <div class="foucs cl">
+              <!-- ?? -->
+                <div id="slideBox" class="slideBox">
+                    <div class="hd">
+                        <ul>
+                        
+
+                        <li>1</li>
+                        
+
+                        <li>2</li>
+                        
+
+                        <li>3</li>
+                        
+
+                        <li>4</li>
+                        
+
+                        <li>5</li>
+                        
+
+                        <li>6</li>
+                        
+
+                        </ul>
+                    </div>
+                    <div class="bd">
+                        <ul>
+                        
+
+                            <li>
+                                <a href="http://www.sipf.com.cn/tzzjy/tjcp/index.shtml" class="pic"><img src="/images/sy/tttpxw/2025/01/26/0DAA7A6923CCC726F8053F8515456840.png"></a>
+                                <div class="titlel">投保视频</div>
+                            </li>
+
+
+                            <li>
+                                <a href="http://www.sipf.com.cn/tzzjy/tbmh/" class="pic"><img src="/images/sy/tttpxw/2025/01/22/94FD2D867B66B460CD99C17C38381117.jpg"></a>
+                                <div class="titlel">漫画课堂</div>
+                            </li>
+
+
+                            <li>
+                                <a href="http://legalinfo.moj.gov.cn/pub/sfbzhfx/zt/2024zt20240113/2024xfxcz20241125/" class="pic"><img src="/images/sy/tttpxw/2024/12/03/71D86BEE3D055F347F2C9939D467F681.png"></a>
+                                <div class="titlel">2024年宪法宣传周</div>
+                            </li>
+
+
+                            <li>
+                                <a href="https://finance.sina.cn/zt_d/subject-1666334741" class="pic"><img src="/images/sy/tttpxw/2022/10/24/860F9A30B09D0D8213CF0F81B5F887EF.jpg"></a>
+                                <div class="titlel">2022年世界投资者周</div>
+                            </li>
+
+
+                            <li>
+                                <a href="https://finance.sina.com.cn/zt_d/subject-1663314598/" class="pic"><img src="/images/sy/tttpxw/2022/09/20/B966453BFFE98618ABE96C721ADE51CF.jpg"></a>
+                                <div class="titlel">2022年金融知识普及月|投保基金公司带你了...</div>
+                            </li>
+
+
+                            <li>
+                                <a href="http://www.sipf.com.cn/sy/ttzyxw/2021/05/13485.shtml" class="pic"><img src="/images/sy/tttpxw/2021/05/15/889A57EC87C07D663EB8D35EC1896516.png"></a>
+                                <div class="titlel">《中国资本市场投资者保护状况蓝皮书（2021...</div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <script type="text/javascript">
+                    jQuery(".slideBox").slide({mainCell:".bd ul",effect:"left",autoPlay:true});
+                </script>
+                <div class="foucs-news">
+                   <div class="fc-hd">
+                     <span class="active">
+                       <a href="/sy/ttzyxw/index.shtml">公司动态</a>
+                     </span>
+                     <span>
+                       <a href="/sy/zjhyw/index.shtml">证监会要闻</a>
+                     </span>
+                     
+                    </div>
+                    
+                     <div class="fc-box">
+                        <div class="fc-list">
+                           <!-- 公司动态 -->
+                                           <ul id="gsdt">
+                    
+<script>
+  var curDate="2025-06-11";
+</script>
+
+  <script>
+      var pubDate="2025-06-11";
+      if (curDate == pubDate){
+       $("#gsdt").append('<li><span class="time" style="padding-top:11px"><img src="/images/new.gif" height=6 width=24/></span><a href="/sy/ttzyxw/2022/06/17272.shtml">中国证券投资者保护基金有限责任公司202...</a></li>');
+    }else {
+       $("#gsdt").append('  <li><span class="time">  06-11</span><a href="/sy/ttzyxw/2022/06/17272.shtml">中国证券投资者保护基金有限责任公司202...</a></li>');
+    } 
+  </script>
+      
+
+  <script>
+      var pubDate="2024-09-26";
+      if (curDate == pubDate){
+       $("#gsdt").append('<li><span class="time" style="padding-top:11px"><img src="/images/new.gif" height=6 width=24/></span><a href="/sy/ttzyxw/2024/09/16552.shtml">金融为民谱新篇 守护权益防风险  202...</a></li>');
+    }else {
+       $("#gsdt").append('  <li><span class="time">  09-26</span><a href="/sy/ttzyxw/2024/09/16552.shtml">金融为民谱新篇 守护权益防风险  202...</a></li>');
+    } 
+  </script>
+      
+
+  <script>
+      var pubDate="2024-07-15";
+      if (curDate == pubDate){
+       $("#gsdt").append('<li><span class="time" style="padding-top:11px"><img src="/images/new.gif" height=6 width=24/></span><a href="/sy/ttzyxw/2021/07/16417.shtml">中国证券投资者保护基金有限责任公司202...</a></li>');
+    }else {
+       $("#gsdt").append('  <li><span class="time">  07-15</span><a href="/sy/ttzyxw/2021/07/16417.shtml">中国证券投资者保护基金有限责任公司202...</a></li>');
+    } 
+  </script>
+      
+
+  <script>
+      var pubDate="2024-01-24";
+      if (curDate == pubDate){
+       $("#gsdt").append('<li><span class="time" style="padding-top:11px"><img src="/images/new.gif" height=6 width=24/></span><a href="https://www.gov.cn/yaowen/liebiao/202401/content_6927581.htm">【时政】李强主持召开国务院常务会议 研究...</a></li>');
+    }else {
+       $("#gsdt").append('  <li><span class="time">  01-24</span><a href="https://www.gov.cn/yaowen/liebiao/202401/content_6927581.htm">【时政】李强主持召开国务院常务会议 研究...</a></li>');
+    } 
+  </script>
+      
+
+  <script>
+      var pubDate="2023-12-04";
+      if (curDate == pubDate){
+       $("#gsdt").append('<li><span class="time" style="padding-top:11px"><img src="/images/new.gif" height=6 width=24/></span><a href="http://legalinfo.moj.gov.cn/pub/sfbzhfx/zt/2023zt1127/2023xfxcz20231127/">2023年宪法宣传周</a></li>');
+    }else {
+       $("#gsdt").append('  <li><span class="time">  12-04</span><a href="http://legalinfo.moj.gov.cn/pub/sfbzhfx/zt/2023zt1127/2023xfxcz20231127/">2023年宪法宣传周</a></li>');
+    } 
+  </script>
+      
+
+  <script>
+      var pubDate="2023-06-17";
+      if (curDate == pubDate){
+       $("#gsdt").append('<li><span class="time" style="padding-top:11px"><img src="/images/new.gif" height=6 width=24/></span><a href="https://www.gov.cn/yaowen/liebiao/202306/content_6886887.htm">【时政】李强主持召开国务院常务会议 研究...</a></li>');
+    }else {
+       $("#gsdt").append('  <li><span class="time">  06-17</span><a href="https://www.gov.cn/yaowen/liebiao/202306/content_6886887.htm">【时政】李强主持召开国务院常务会议 研究...</a></li>');
+    } 
+  </script>
+      
+
+
+                            </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+
+                        <div class="fc-list" style="display: none;">
+                           <!-- 证监会要闻 -->
+                                                              
+<script>
+  var curDate="2025-05-30";
+</script>
+
+
+   <li><span class="time">  05-30</span><a href="http://www.csrc.gov.cn/csrc/c100028/c7560525/content.shtml">国家发展改革委、国务院国资委、中国证监会...</a></li>  
+
+
+   <li><span class="time">  05-30</span><a href="http://www.csrc.gov.cn/csrc/c100028/c7560538/content.shtml">中共中央办公厅 国务院办公厅关于完善中国...</a></li>  
+
+
+   <li><span class="time">  05-30</span><a href="http://www.csrc.gov.cn/csrc/c100028/c7559921/content.shtml">证监会同意铸造铝合金期货和期权注册</a></li>  
+
+
+   <li><span class="time">  05-21</span><a href="http://www.csrc.gov.cn/csrc/c100028/c7558588/content.shtml">中国证监会修改《上市公司重大资产重组管理...</a></li>  
+
+
+   <li><span class="time">  05-15</span><a href="http://www.csrc.gov.cn/csrc/c100028/c7557783/content.shtml">证监会举办2025年“5·15全国投资者...</a></li>  
+
+
+   <li><span class="time">  05-15</span><a href="http://www.csrc.gov.cn/csrc/c100028/c7557835/content.shtml">最高人民法院 中国证券监督管理委员会印发...</a></li>  
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="sc-line"></div>
+            <!-- 栏目块 -->
+            <div class="section">
+                <div class="catebox">
+                    <div class="site-hd"><span><img src="/images/tig_06.jpg"/><h3>投资者保护</h3></span></div>
+                    <div class="cate-bd">
+                      <!-- 投保资讯引入-->
+                       
+                         <dl>
+                           <dl>
+                            <dt><a href="/tbzx/tbzx/index.shtml">投保资讯</a></dt>
+                            
+
+                            <dd><a href="http://www.csrc.gov.cn/csrc/c100211/c7448495/content.shtml">证监会系统组织开展“2023...</a></dd>
+                            
+
+                            <dd><a href="http://www.csrc.gov.cn/csrc/c100210/c7445341/content.shtml">关于防范以“清退回款”等名义...</a></dd>
+                            
+
+                        </dl>
+
+
+                        </dl>
+                         <dl>
+                       <!--原样式
+                          
+
+                            <dt><a href="/tzzjy/index.shtml">投保产品</a></dt>
+                            
+
+                            <dd><a href="/tzzjy/tjjt/zsl/2018/09/11332.shtml">[知识类]最近在网上看到一...</a></dd>
+
+
+                            <dd><a href="/tzzjy/tjjt/zsl/2018/09/11328.shtml">[知识类]最近我看到有“老...</a></dd>
+
+
+
+
+
+                        -->
+                                                       <dt><a href="/tzzjy/index.shtml">投保产品</a></dt>
+                            
+
+                            <dd><a href="/tzzjy/tbmh/2025/06/17254.shtml">《防非之套路拆解大师》第3期...</a></dd>
+
+
+                            <dd><a href="/tzzjy/tbmh/2025/06/17255.shtml">《防非之套路拆解大师》第2期...</a></dd>
+
+
+
+                        </dl>
+                        <dl>
+                          
+
+                            <dt><a href="/tbfg/index.shtml">投保法规</a></dt>
+                            
+
+                            <dd><a href="/tbfg/2023/10/15820.shtml">私募投资基金监督管理条例（...</a></dd>
+
+
+                            <dd><a href="/tbfg/2023/10/15819.shtml">防范和处置非法集资条例（2...</a></dd>
+
+
+                            <dd><a href="/tbfg/2023/10/15818.shtml">中国人民银行金融消费者权益...</a></dd>
+
+
+                            <dd><a href="/tbfg/2020/03/12888.shtml">国务院办公厅关于贯彻实施修...</a></dd>
+
+
+                            <dd><a href="/tbfg/2020/03/12887.shtml">中华人民共和国证券法（20...</a></dd>
+
+
+
+
+
+
+                        </dl>
+                    </div>
+                </div>
+                <div class="catebox">
+                    <div class="site-hd"><span><img src="/images/tig_02.jpg"/><h3 style="margin-right:5px;">投保基金发布</h3></span></div>
+                    <div class="cate-bd">
+                      <!-- 信心指数 -->
+                       <dl>
+                            <dt><a href="/dcpj/xxzs/index.shtml">信心指数</a></dt>
+                            
+
+                            <dd><a href="/dcpj/xxzs/2023/08/15745.shtml">证券投资者信心调查专报（2023年第7期）</a></dd>
+                            
+
+                            <dd><a href="/dcpj/xxzs/2023/07/15563.shtml">证券投资者信心调查专报（2023年第6期）</a></dd>
+                            
+
+                        </dl>
+
+
+
+
+
+
+
+ 
+                      <!-- 调查成果 -->
+                        <dl>
+                            <dt><a href="/dcpj/dccg/index.shtml">调查成果</a></dt>
+                            
+
+                            <dd><a href="/dcpj/dccg/2020/09/13306.shtml">投保基金公司发布《2020年...</a></dd>
+                            
+
+                            <dd><a href="/dcpj/dccg/2020/09/13307.shtml">投保基金公司发布《新三板改革...</a></dd>
+                            
+
+                        </dl>
+
+
+
+
+
+
+                       <!-- 统计数据 -->
+                        <dl>
+                      <dt><a href="/zjjk/tjsj/tjyb/index.shtml">统计数据</a></dt>
+                            
+
+                            <dd><a href="/zjjk/tjsj/tjyb/2025/06/17246.shtml">2025年4月统计月报</a></dd>
+                            
+
+                            <dd><a href="/zjjk/tjsj/tjyb/2025/06/17245.shtml">2025年3月统计月报</a></dd>
+                            
+
+                            <dd><a href="/zjjk/tjsj/tjyb/2025/05/17231.shtml">2025年2月统计月报</a></dd>
+                            
+
+                            <dd><a href="/zjjk/tjsj/tjyb/2025/05/17230.shtml">2025年1月统计月报</a></dd>
+                            
+
+                            <dd><a href="/zjjk/tjsj/tjyb/2025/03/17004.shtml">2024年12月统计月报</a></dd>
+                            
+
+                        </dl>
+
+
+
+
+
+                    </div>
+                </div>
+                <!--div class="catebox" style="margin-right: 0;"-->
+                <div class="catebox" style="margin-right: 0;height: 339px;">
+                    <div class="site-hd"><span><img src="/images/tig_03.jpg"/><h3>投资者赔付</h3></span></div>
+                    <div class="cate-bd">
+
+<!-- 专项补偿 -->
+
+                         <dl>
+                            <dt><a href="/zxbc/zxbc/index.shtml">专项补偿</a></dt>
+                            
+
+                            <dd><a href="https://www.sipf.com.cn/zjcc">紫晶存储</a></dd>
+                            
+
+                            <dd><a href="https://www.sipf.com.cn/investor/">欣泰电气</a></dd>
+                            
+
+                        </dl>
+
+
+<!-- 和解金管理 -->
+
+                         <dl>
+                            <dt><a href="/xzhj/zcfg2/index.shtml">承诺金管理</a></dt>
+                            
+
+                            <dd><a href="/xzhj/zcfg2/2022/03/14131.shtml">证券期货行政执法当事人承诺制</a></dd>
+                            
+
+                            <dd><a href="/xzhj/zcfg2/2022/03/14130.shtml">证券期货行政执法当事人承诺制</a></dd>
+                            
+
+                        </dl>
+
+
+
+<!-- 风险处置-->
+                         <dl>
+                            <dt><a href="/fxcz/index.shtml">风险处置</a></dt>
+                            
+
+                            <dd><a href="/fxcz/zcfg/2016/01/3620.shtml">证券投资者保护基金管理办法</a></dd>
+                            
+
+                            <dd><a href="/fxcz/zcfg/2016/02/5836.shtml">证券公司风险处置条例（201</a></dd>
+                            
+
+                        </dl>
+
+
+
+<!-- 纠纷调解-->
+                         <dl>
+                            <dt><a href="/zqjfdj/index.shtml">纠纷调解</a></dt>
+                            
+
+                            <dd><a href="/zqjfdj/stdj/2018/09/12172.shtml">发挥专业优势支持司法审判 积</a></dd>
+                            
+
+                            <dd><a href="/zqjfdj/stdj/2018/09/12173.shtml">构建合作机制，助力一线监管—</a></dd>
+                            
+
+                        </dl>
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- 广告 -->
+            <div class="ad-m"><a href="http://www.sipf.com.cn/index.shtml"><img src="/images/ad_1.jpg" height="120" width="769" alt=""></a></div>
+            <!-- 栏目块2 -->
+           
+             <div class="section">
+               
+                <div class="catebox">
+                    <div class="site-hd"><span><img src="/images/tig_04.jpg"/><h3><a href="/tzzjy/tbyj/index.shtml" style="font-size: 14px;color: #FFFFFF;">投保研究</a></h3></span></div>
+                    <div class="cate-bd">
+                              
+                         <!--
+2018-6-22
+
+-->           
+
+                    <!--2018-6-22
+                     <div class="site-hd2"><span><img src="/images/tig_04.jpg"><div class="iimage"></div><a href="/tzzjy/tbyj/index.shtml">投保研究</a></span></div>
+                     <div class="cate-bd">
+                     -->
+
+    <dl>
+                           
+                        <dd><a href="/tzzjy/tbyj/2020/09/13187.shtml">2020年上半年投资者信心指数运行情况分析报告</a></dd>
+                            
+                        <dd><a href="/tzzjy/tbyj/2020/04/12949.shtml">2019年度A股上市公司投资者关系管理状况研究</a></dd>
+                            
+                        <dd><a href="/tzzjy/tbyj/2020/02/12795.shtml">关于美国财政部金融研究办公室2019年度美国...</a></dd>
+                            
+                        <dd><a href="/tzzjy/tbyj/2020/02/12781.shtml">IOSCO关于2020年全球资本市场风险展望...</a></dd>
+                            
+                        <dd><a href="/tzzjy/tbyj/2019/12/12690.shtml">俄罗斯投资者保护的经验及其借鉴</a></dd>
+                            
+                        <dd><a href="/tzzjy/tbyj/2019/12/12671.shtml">2018年度证券投资者满意度调查报告</a></dd>
+                            
+                        <dd><a href="/tzzjy/tbyj/2019/04/12670.shtml">关于投资者对科创板配套制度意见建议及投资者教...</a></dd>
+                            
+                        <dd><a href="/tzzjy/tbyj/2019/01/12669.shtml">噪声中的投资者保护——美国对网络信息传播型证...</a></dd>
+                            
+     </dl>
+ 
+
+
+                    </div>
+                </div>
+
+ 
+                <div class="catebox">
+                    <div class="site-hd"><span><img src="/images/tig_05.jpg"/><h3><a href="/gjjl/index.shtml" style="font-size: 14px;color: #FFFFFF;">国际交流</a></h3></span></div>
+                    <div class="cate-bd">
+                              
+                         <!-- 2018-6-22
+<div class="site-hd2"><span><img src="/images/tig_05.jpg" /><div class="iimage"></div><a href="/gjjl/index.shtml">国际交流</a></span></div>
+                    <div class="cate-bd">
+-->
+
+   <dl>
+                           
+                        <dd><a href="/gjjl/gjsy/2021/01/13360.shtml">SEC发放了总额近300万美元的多笔举报奖金</a></dd>
+                            
+                        <dd><a href="/gjjl/gjsy/2021/01/13359.shtml">美国证券交易委员会指控Robinhood金融...</a></dd>
+                            
+                        <dd><a href="/gjjl/gjsy/2021/01/13358.shtml">瑞幸咖啡同意支付1.8亿美元罚款以了结会计欺诈指控</a></dd>
+                            
+                        <dd><a href="/gjjl/gjsy/2020/11/13282.shtml">SEC更新审计人员独立规则</a></dd>
+                            
+                        <dd><a href="/gjjl/gjsy/2020/11/13281.shtml">Kik Interactive公司的未注册发...</a></dd>
+                            
+                        <dd><a href="/gjjl/gjsy/2020/11/13280.shtml">金融科技在银行业的运用</a></dd>
+                            
+                        <dd><a href="/gjjl/gjsy/2020/11/13279.shtml">SEC颁发两项有关海外违法行为高质量信息的举...</a></dd>
+                            
+                        <dd><a href="/gjjl/gjsy/2019/11/12647.shtml">美国证券交易委员会对18名进行股票操纵计划的...</a></dd>
+                            
+    </dl>
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+                 <div class="catebox" style="margin-right: 0;">
+                    <div class="site-hd"><span><img src="/images/tig_07.jpg"/><h3><a href="/flfg/index.shtml" style="font-size: 14px;color: #FFFFFF;">法律法规</a></h3></span></div>
+                    <div class="cate-bd">
+                       <!--
+2018-6-22
+
+-->           
+
+                    <!--2018-6-22
+                     <div class="site-hd2"><span><img src="/images/tig_07.jpg"><div class="iimage"></div><a href="/flfg/index.shtml">法律法规</a></span></div>
+                     <div class="cate-bd">
+                     -->
+
+    <dl>
+                           
+                        <dd><a href="/flfg/2024/09/16519.shtml">网络反不正当竞争暂行规定</a></dd>
+                            
+                        <dd><a href="/flfg/2024/09/16518.shtml">经营者反垄断合规指南</a></dd>
+                            
+                        <dd><a href="/flfg/2024/09/16517.shtml">国务院反垄断反不正当竞争委员会关于行业协会的...</a></dd>
+                            
+                        <dd><a href="/flfg/2024/09/16514.shtml">国务院关于经营者集中申报标准的规定</a></dd>
+                            
+                        <dd><a href="/flfg/2024/09/16513.shtml">公平竞争审查条例</a></dd>
+                            
+                        <dd><a href="/flfg/2023/09/15787.shtml">最高人民法院发布二十起人民法院反垄断和反不正...</a></dd>
+                            
+                        <dd><a href="/flfg/2023/09/15786.shtml">市场监管总局关于印发《经营者集中反垄断合规指...</a></dd>
+                            
+                        <dd><a href="/flfg/2023/09/15785.shtml">经营者集中审查规定</a></dd>
+                            
+     </dl>
+ 
+
+
+
+                    </div>
+                </div>
+            </div>
+          </div>
+    
+    <!-- 通用底部 -->
+       <div class="footer">
+        <div class="ft-lef">
+            <p>联系电话：66580678　<a href="https://beian.miit.gov.cn"><font color="#FFFFFF">　京ICP备12035868号-1</font></a>　　本站已支持ipv6访问</p>
+            <p>中国证券投资者保护基金有限责任公司　版权所有　　地址：北京西城区金融大街5号新盛大厦B座22层</p>
+            <p></p>
+            <p></p>
+        </div>
+        <div class="ft-r">
+            <a href="/zwz/2016/01/3602.shtml">联系我们</a><span>|</span><a href="/sy/2016/01/3604.shtml">告投资者声明</a><span>|</span><a href="/sy/2016/01/3606.shtml">法律声明</a>
+        </div>
+    </div>
+
+<script>
+$(".navbar ul > li").each(function(key){
+var dqurl=window.location.href;
+
+        var url = window.location.pathname.replace("/site1","");
+        var pathName = url.substring(0, url.substr(1).indexOf('/') + 1);
+        var ulink = pathName.toString();
+        var this_link = $(this).find('a').attr('href');
+		var short_link = this_link.split('.')[0].replace("/site1","");
+        //alert (short_link);
+		if(ulink=="/" || ulink=="" || ulink == null)
+		{
+			document.getElementById('home').className="cur";
+		}
+		else if(short_link.indexOf(ulink)>-1)
+		{
+			$(this).addClass('cur');
+		}
+
+    });
+
+</script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?2408d8665655cedb52ad993c8468d590";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--黑白样式
+    <style>
+        * {
+            -webkit-filter: grayscale(100%);
+            /* Chrome, Safari, Opera */
+            -ms-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            filter: gray;
+            /* IE 6-9 */
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script src="grayscale.js"></script>
+    <script>
+        $(function() {
+            grayscale(document.body);
+        })
+    </script>
+黑白样式，注意上传并引用js-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
