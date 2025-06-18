@@ -65,18 +65,15 @@ class ESMADocumentAgent:
         }
     
     def create_directories(self):
-        """Create necessary directories for ESMA document storage"""
         Path(self.base_folder).mkdir(parents=True, exist_ok=True)
         # Create subdirectories
         for subfolder in ['raw', 'processed', 'summaries', 'comparisons', 'guidelines', 'technical_standards']:
             Path(f"{self.base_folder}/{subfolder}").mkdir(parents=True, exist_ok=True)
     
     def get_file_hash(self, content):
-        """Generate hash for file content to avoid duplicates"""
         return hashlib.md5(content.encode() if isinstance(content, str) else content).hexdigest()
     
     def sanitize_filename(self, filename):
-        """Sanitize filename for safe storage"""
         # Remove invalid characters
         filename = re.sub(r'[<>:"/\\|?*]', '_', filename)
         # Limit length
@@ -85,7 +82,6 @@ class ESMADocumentAgent:
         return filename
     
     def fetch_esma_documents(self, document_types: List[str] = None, download_files: bool = True, include_news: bool = False) -> Dict:
-        """Fetch ESMA regulatory documents from specific sections"""
         if document_types is None:
             document_types = ['MiFID II', 'MiFIR', 'MiCA', 'DORA', 'Fund Management']
         
@@ -125,7 +121,6 @@ class ESMADocumentAgent:
             }
     
     def _fetch_documents_by_category(self, doc_type: str, download_files: bool = True) -> Dict:
-        """Fetch documents for a specific category using ESMA's structure"""
         try:
             documents = []
             
@@ -163,7 +158,6 @@ class ESMADocumentAgent:
             }
     
     def _scrape_esma_page(self, url: str, doc_type: str, download_files: bool = True) -> List[Dict]:
-        """Scrape an ESMA page for documents"""
         try:
             response = self.session.get(url, timeout=30)
             response.raise_for_status()
@@ -214,7 +208,6 @@ class ESMADocumentAgent:
             return []
     
     def _extract_link_title(self, link) -> str:
-        """Extract a meaningful title from a link"""
         # Try text content first
         title = link.get_text(strip=True)
         if title and len(title) > 3:
@@ -234,7 +227,6 @@ class ESMADocumentAgent:
         return "ESMA_document"
     
     def _extract_documents_from_section(self, section, base_url: str, doc_type: str, download_files: bool) -> List[Dict]:
-        """Extract documents from a specific section of the page"""
         documents = []
         document_extensions = ['.pdf', '.doc', '.docx', '.xls', '.xlsx']
         
@@ -265,7 +257,6 @@ class ESMADocumentAgent:
         return documents
     
     def _fetch_guidelines_and_standards(self, doc_type: str, download_files: bool = True) -> List[Dict]:
-        """Fetch guidelines and technical standards for a document type"""
         try:
             documents = []
             
@@ -295,7 +286,6 @@ class ESMADocumentAgent:
             return []
     
     def _fetch_recent_publications(self, download_files: bool = True) -> Dict:
-        """Fetch recent ESMA publications and news"""
         try:
             documents = []
             
@@ -329,7 +319,6 @@ class ESMADocumentAgent:
             }
     
     def _download_document(self, url: str, title: str, doc_type: str) -> Optional[Dict]:
-        """Download and save ESMA document"""
         try:
             response = self.session.get(url, timeout=30)
             response.raise_for_status()
@@ -389,7 +378,6 @@ class ESMADocumentAgent:
             return None
     
     def search_esma_documents(self, query: str, download_files: bool = False) -> Dict:
-        """Search ESMA website for specific documents"""
         try:
             # Use ESMA's search functionality
             search_url = f"https://www.esma.europa.eu/search/site/{query}"
@@ -425,7 +413,6 @@ class ESMADocumentAgent:
             }
     
     def list_esma_documents(self) -> Dict:
-        """List all locally stored ESMA documents"""
         try:
             documents = {}
             total_files = 0
@@ -467,33 +454,20 @@ esma_agent = ESMADocumentAgent()
 
 @mcp.tool()
 def fetch_esma_documents(document_types: List[str] = None, download_files: bool = True, include_news: bool = False):
-    """Fetch ESMA regulatory documents from specific categories
     
-    Args:
-        document_types: List of document types to fetch (e.g., ['MiFID II', 'MiFIR', 'MiCA', 'DORA'])
-        download_files: Whether to download files locally or just return metadata
-        include_news: Whether to include recent news and publications
-    """
     return json.dumps(esma_agent.fetch_esma_documents(document_types, download_files, include_news))
 
 @mcp.tool()
 def search_esma_documents(query: str, download_files: bool = False):
-    """Search ESMA website for specific documents
-    
-    Args:
-        query: Search query (e.g., "MiFID transparency", "crypto assets")
-        download_files: Whether to download found documents
-    """
+   
     return json.dumps(esma_agent.search_esma_documents(query, download_files))
 
 @mcp.tool()
 def list_esma_documents():
-    """List all locally stored ESMA documents with counts by category"""
     return json.dumps(esma_agent.list_esma_documents())
 
 @mcp.tool()
 def get_esma_sections():
-    """Get available ESMA website sections and document categories"""
     return json.dumps({
         "esma_sections": esma_agent.esma_sections,
         "document_categories": esma_agent.document_categories,

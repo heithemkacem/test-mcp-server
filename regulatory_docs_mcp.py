@@ -39,7 +39,6 @@ class RegulatoryAnalysisAgent:
         self.ensure_directories()
     
     def ensure_directories(self):
-        """Ensure all necessary directories exist"""
         for folder_path in self.base_folders.values():
             Path(folder_path).mkdir(parents=True, exist_ok=True)
             # Create subdirectories
@@ -47,7 +46,6 @@ class RegulatoryAnalysisAgent:
                 Path(f"{folder_path}/{subfolder}").mkdir(parents=True, exist_ok=True)
     
     def summarize_documents(self, source: str, doc_type: str = None) -> Dict:
-        """Summarize documents using LLM"""
         try:
             if source not in self.base_folders:
                 return {
@@ -116,7 +114,6 @@ class RegulatoryAnalysisAgent:
             }
     
     def compare_documents(self, source1: str, source2: str = None, doc_types: List[str] = None) -> Dict:
-        """Compare documents between sources or within same source"""
         try:
             if source1 not in self.base_folders:
                 return {
@@ -181,7 +178,6 @@ class RegulatoryAnalysisAgent:
             }
     
     def _extract_text_from_file(self, file_path: str) -> str:
-        """Extract text from various file formats"""
         try:
             file_ext = os.path.splitext(file_path)[1].lower()
             
@@ -215,7 +211,6 @@ class RegulatoryAnalysisAgent:
             return ""
     
     def _generate_summary(self, text: str, filename: str, source: str) -> Dict:
-        """Generate summary using LLM - enhanced implementation"""
         try:
             # Truncate text for summary if too long
             text_sample = text[:5000] if len(text) > 5000 else text
@@ -266,7 +261,6 @@ class RegulatoryAnalysisAgent:
             }
     
     def _extract_key_points(self, text: str, source: str) -> List[str]:
-        """Extract key regulatory points from text"""
         key_points = []
         
         # Common regulatory keywords
@@ -291,7 +285,6 @@ class RegulatoryAnalysisAgent:
         return list(set(key_points))[:10]  # Return unique points, max 10
     
     def _extract_compliance_requirements(self, text: str, source: str) -> List[str]:
-        """Extract compliance requirements from text"""
         requirements = []
         
         # Patterns for compliance requirements
@@ -311,7 +304,6 @@ class RegulatoryAnalysisAgent:
         return requirements[:15]  # Max 15 requirements
     
     def _extract_effective_dates(self, text: str) -> List[str]:
-        """Extract effective dates from text"""
         dates = []
         
         # Date patterns
@@ -329,7 +321,6 @@ class RegulatoryAnalysisAgent:
         return list(set(dates))[:5]  # Return unique dates, max 5
     
     def _extract_penalties(self, text: str) -> List[str]:
-        """Extract penalty information from text"""
         penalties = []
         
         # Penalty patterns
@@ -347,7 +338,6 @@ class RegulatoryAnalysisAgent:
         return penalties[:10]  # Max 10 penalties
     
     def _extract_definitions(self, text: str) -> Dict[str, str]:
-        """Extract definitions from text"""
         definitions = {}
         
         # Definition patterns
@@ -365,7 +355,6 @@ class RegulatoryAnalysisAgent:
         return definitions
     
     def _generate_executive_summary(self, text: str, source: str) -> str:
-        """Generate executive summary"""
         # This is a placeholder - in a real implementation, you'd use an LLM
         summary_parts = []
         
@@ -382,7 +371,6 @@ class RegulatoryAnalysisAgent:
         return " ".join(summary_parts)
     
     def _identify_document_type(self, filename: str, text: str) -> str:
-        """Identify document type based on filename and content"""
         filename_lower = filename.lower()
         text_lower = text.lower()
         
@@ -403,7 +391,6 @@ class RegulatoryAnalysisAgent:
             return 'Regulatory Document'
     
     def _extract_regulatory_scope(self, text: str, source: str) -> List[str]:
-        """Extract regulatory scope"""
         scope = []
         
         scope_keywords = {
@@ -420,7 +407,6 @@ class RegulatoryAnalysisAgent:
         return scope
     
     def _calculate_analysis_quality(self, text: str) -> float:
-        """Calculate analysis quality score"""
         score = 0.0
         
         # Check text length
@@ -445,7 +431,6 @@ class RegulatoryAnalysisAgent:
         return min(score, 1.0)
     
     def _calculate_confidence_score(self, text: str) -> float:
-        """Calculate confidence score for analysis"""
         # Simple confidence calculation based on text characteristics
         if len(text) < 100:
             return 0.3
@@ -457,7 +442,6 @@ class RegulatoryAnalysisAgent:
             return 0.9
     
     def _detect_language(self, text: str) -> str:
-        """Detect document language"""
         # Simple language detection
         chinese_chars = len(re.findall(r'[\u4e00-\u9fff]', text))
         total_chars = len(text)
@@ -468,7 +452,6 @@ class RegulatoryAnalysisAgent:
             return 'English'
     
     def _get_summaries_from_source(self, source: str, doc_types: List[str] = None) -> List[Dict]:
-        """Get all summaries from a source"""
         summaries_folder = os.path.join(self.base_folders[source], 'summaries')
         summaries = []
         
@@ -493,7 +476,6 @@ class RegulatoryAnalysisAgent:
         return summaries
     
     def _compare_two_documents(self, doc1: Dict, doc2: Dict) -> Dict:
-        """Compare two document summaries with enhanced analysis"""
         try:
             comparison = {
                 "document1": doc1.get("document_name", "Unknown"),
@@ -560,7 +542,6 @@ class RegulatoryAnalysisAgent:
             }
     
     def _identify_compliance_gaps(self, doc1: Dict, doc2: Dict) -> List[str]:
-        """Identify potential compliance gaps between documents"""
         gaps = []
         
         # Check for missing compliance requirements
@@ -586,7 +567,6 @@ class RegulatoryAnalysisAgent:
         return gaps
     
     def _generate_recommendations(self, doc1: Dict, doc2: Dict, comparison: Dict) -> List[str]:
-        """Generate recommendations based on comparison"""
         recommendations = []
         
         # Check for low similarity
@@ -608,7 +588,6 @@ class RegulatoryAnalysisAgent:
         return recommendations
     
     def _calculate_comparison_score(self, comparison: Dict) -> float:
-        """Calculate similarity score between documents"""
         score = 0.0
         
         # Score based on similar key points
@@ -638,7 +617,6 @@ class RegulatoryAnalysisAgent:
         return min(score, 1.0)
     
     def generate_comparative_report(self, source1: str, source2: str = None, doc_types: List[str] = None) -> Dict:
-        """Generate a comprehensive comparative report"""
         try:
             # First run comparison
             comparison_result = self.compare_documents(source1, source2, doc_types)
@@ -680,7 +658,6 @@ class RegulatoryAnalysisAgent:
             }
     
     def _generate_report_summary(self, comparisons: List[Dict]) -> str:
-        """Generate executive summary for the report"""
         if not comparisons:
             return "No comparisons available for analysis."
         
@@ -691,7 +668,6 @@ class RegulatoryAnalysisAgent:
         return f"Analysis of {total_comparisons} document comparisons shows an average similarity score of {avg_score:.2f}. {high_similarity} comparisons indicate high similarity, suggesting potential regulatory alignment."
     
     def _generate_overall_insights(self, comparisons: List[Dict]) -> List[str]:
-        """Generate overall insights from comparisons"""
         insights = []
         
         if not comparisons:
@@ -738,7 +714,6 @@ class RegulatoryAnalysisAgent:
         return insights
     
     def _generate_risk_assessment(self, comparisons: List[Dict]) -> Dict:
-        """Generate risk assessment from comparisons"""
         risk_assessment = {
             "overall_risk_level": "LOW",
             "compliance_risks": [],
@@ -797,7 +772,6 @@ class RegulatoryAnalysisAgent:
         return risk_assessment
     
     def _generate_action_items(self, comparisons: List[Dict]) -> List[Dict]:
-        """Generate actionable items from comparisons"""
         action_items = []
         
         if not comparisons:
@@ -863,43 +837,22 @@ analysis_agent = RegulatoryAnalysisAgent()
 
 @mcp.tool()
 def summarize_regulatory_documents(source: str, doc_type: str = None):
-    """Summarize regulatory documents from specified source
-    
-    Args:
-        source: Source of documents ('esma' or 'csrc')
-        doc_type: Optional filter by document type
-    """
+   
     return json.dumps(analysis_agent.summarize_documents(source, doc_type))
 
 @mcp.tool()
 def compare_regulatory_documents(source1: str, source2: str = None, doc_types: List[str] = None):
-    """Compare regulatory documents between sources or within same source
-    
-    Args:
-        source1: First source ('esma' or 'csrc')
-        source2: Second source (optional, defaults to source1)
-        doc_types: Optional filter by document types
-    """
+   
     return json.dumps(analysis_agent.compare_documents(source1, source2, doc_types))
 
 @mcp.tool()
 def generate_comparative_report(source1: str, source2: str = None, doc_types: List[str] = None):
-    """Generate comprehensive comparative analysis report
     
-    Args:
-        source1: First source ('esma' or 'csrc')
-        source2: Second source (optional, defaults to source1)
-        doc_types: Optional filter by document types
-    """
     return json.dumps(analysis_agent.generate_comparative_report(source1, source2, doc_types))
 
 @mcp.tool()
 def get_analysis_summary(source: str):
-    """Get summary of all analysis activities for a source
-    
-    Args:
-        source: Source to analyze ('esma' or 'csrc')
-    """
+  
     try:
         if source not in analysis_agent.base_folders:
             return json.dumps({
@@ -951,12 +904,7 @@ def get_analysis_summary(source: str):
 
 @mcp.tool()
 def get_document_details(source: str, document_name: str):
-    """Get detailed information about a specific document
-    
-    Args:
-        source: Source of document ('esma' or 'csrc')
-        document_name: Name of the document to analyze
-    """
+   
     try:
         if source not in analysis_agent.base_folders:
             return json.dumps({
@@ -1030,13 +978,7 @@ def get_document_details(source: str, document_name: str):
 
 @mcp.tool()
 def cleanup_analysis_files(source: str, category: str = None, older_than_days: int = 30):
-    """Clean up old analysis files
-    
-    Args:
-        source: Source to clean ('esma' or 'csrc')
-        category: Optional category to clean ('raw', 'processed', 'summaries', 'comparisons')
-        older_than_days: Remove files older than this many days
-    """
+   
     try:
         if source not in analysis_agent.base_folders:
             return json.dumps({

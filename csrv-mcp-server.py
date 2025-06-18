@@ -124,7 +124,6 @@ class CSRCDocumentAgent:
         ]
     
     def create_directories(self):
-        """Create necessary directories for CSRC document storage"""
         Path(self.base_folder).mkdir(parents=True, exist_ok=True)
         # Create subdirectories matching ESMA structure
         for subfolder in ['raw', 'processed', 'summaries', 'comparisons', 'guidelines', 'technical_standards', 'regional']:
@@ -135,11 +134,9 @@ class CSRCDocumentAgent:
             Path(f"{self.base_folder}/regional/{region}").mkdir(parents=True, exist_ok=True)
     
     def get_file_hash(self, content):
-        """Generate hash for file content to avoid duplicates"""
         return hashlib.md5(content.encode() if isinstance(content, str) else content).hexdigest()
     
     def sanitize_filename(self, filename):
-        """Sanitize filename for safe storage"""
         # Remove invalid characters
         filename = re.sub(r'[<>:"/\\|?*]', '_', filename)
         # Handle Chinese characters properly
@@ -151,7 +148,6 @@ class CSRCDocumentAgent:
     
     def fetch_csrc_documents(self, document_types: List[str] = None, regions: List[str] = None, 
                            download_files: bool = True, include_regional: bool = True) -> Dict:
-        """Fetch CSRC regulatory documents from specified categories and regions"""
         if document_types is None:
             document_types = ['Securities Law', 'Market Regulation', 'Disclosure Rules', 'Listed Company Rules']
         
@@ -195,7 +191,6 @@ class CSRCDocumentAgent:
             }
     
     def _fetch_documents_by_category(self, doc_type: str, regions: List[str], download_files: bool = True) -> Dict:
-        """Fetch documents for a specific category across multiple regions"""
         try:
             documents = []
             category_info = self.document_categories.get(doc_type, {})
@@ -239,7 +234,6 @@ class CSRCDocumentAgent:
             }
     
     def _scrape_csrc_page(self, url: str, doc_type: str, region: str, download_files: bool = True) -> List[Dict]:
-        """Scrape a CSRC page for documents"""
         try:
             response = self.session.get(url, timeout=30)
             if response.status_code == 404:
@@ -293,7 +287,6 @@ class CSRCDocumentAgent:
             return []
     
     def _scrape_csrc_page_filtered(self, url: str, doc_type: str, region: str, download_files: bool = True) -> List[Dict]:
-        """Scrape a CSRC page with keyword filtering"""
         try:
             response = self.session.get(url, timeout=30)
             if response.status_code == 404:
@@ -347,7 +340,6 @@ class CSRCDocumentAgent:
             return []
     
     def _is_relevant_link(self, link, doc_type: str) -> bool:
-        """Check if a link is relevant to the document type"""
         link_text = link.get_text(strip=True).lower()
         href = link.get('href', '').lower()
         
@@ -361,7 +353,6 @@ class CSRCDocumentAgent:
         return False
     
     def _extract_link_title(self, link, doc_type: str) -> str:
-        """Extract a meaningful title from a link"""
         # Try text content first
         title = link.get_text(strip=True)
         if title and len(title) > 3:
@@ -384,7 +375,6 @@ class CSRCDocumentAgent:
         return f"CSRC_{doc_type}_document"
     
     def _fetch_regional_content(self, regions: List[str], download_files: bool = True) -> Dict:
-        """Fetch recent content from regional CSRC offices"""
         try:
             documents = []
             
@@ -451,7 +441,6 @@ class CSRCDocumentAgent:
             }
     
     def _download_document(self, url: str, title: str, doc_type: str, region: str, is_file: bool = True) -> Optional[Dict]:
-        """Download and save CSRC document"""
         try:
             response = self.session.get(url, timeout=30)
             response.raise_for_status()
@@ -522,7 +511,6 @@ class CSRCDocumentAgent:
             return None
     
     def search_csrc_documents(self, query: str, regions: List[str] = None, download_files: bool = False) -> Dict:
-        """Search CSRC websites for specific documents"""
         if regions is None:
             regions = ['main', 'shanghai', 'shenzhen']
         
@@ -574,7 +562,6 @@ class CSRCDocumentAgent:
             }
     
     def _extract_search_results(self, soup, query: str, search_url: str, region: str, download_files: bool) -> List[Dict]:
-        """Extract search results from a CSRC page"""
         documents = []
         query_lower = query.lower()
         
@@ -610,7 +597,6 @@ class CSRCDocumentAgent:
         return documents[:20]  # Limit results
     
     def _calculate_relevance(self, text: str, query: str) -> float:
-        """Calculate relevance score for search results"""
         text_lower = text.lower()
         query_lower = query.lower()
         
@@ -624,7 +610,6 @@ class CSRCDocumentAgent:
         return score
     
     def list_csrc_documents(self) -> Dict:
-        """List all locally stored CSRC documents"""
         try:
             documents = {}
             total_files = 0
@@ -684,35 +669,20 @@ csrc_agent = CSRCDocumentAgent()
 @mcp.tool()
 def fetch_csrc_documents(document_types: List[str] = None, regions: List[str] = None, 
                         download_files: bool = True, include_regional: bool = True):
-    """Fetch CSRC regulatory documents from specified categories and regions
     
-    Args:
-        document_types: List of document types to fetch (e.g., ['Securities Law', 'Market Regulation', 'Disclosure Rules', 'Listed Company Rules'])
-        regions: List of CSRC regions to search (e.g., ['main', 'shanghai', 'shenzhen', 'beijing'])
-        download_files: Whether to download files locally or just return metadata
-        include_regional: Whether to include regional office content
-    """
     return json.dumps(csrc_agent.fetch_csrc_documents(document_types, regions, download_files, include_regional))
 
 @mcp.tool()
 def search_csrc_documents(query: str, regions: List[str] = None, download_files: bool = False):
-    """Search CSRC websites for specific documents
-    
-    Args:
-        query: Search query string
-        regions: List of CSRC regions to search (defaults to ['main', 'shanghai', 'shenzhen'])
-        download_files: Whether to download found documents
-    """
+   
     return json.dumps(csrc_agent.search_csrc_documents(query, regions, download_files))
 
 @mcp.tool()
 def list_csrc_documents():
-    """List all locally stored CSRC documents"""
     return json.dumps(csrc_agent.list_csrc_documents())
 
 @mcp.tool()
 def get_csrc_document_categories():
-    """Get available CSRC document categories and regions"""
     return json.dumps({
         "finalResponse": "SUCCESS",
         "document_categories": list(csrc_agent.document_categories.keys()),
@@ -731,11 +701,7 @@ def get_csrc_document_categories():
 
 @mcp.tool()
 def analyze_csrc_document(file_path: str):
-    """Analyze a locally stored CSRC document
     
-    Args:
-        file_path: Path to the document file to analyze
-    """
     try:
         if not os.path.exists(file_path):
             return json.dumps({
@@ -821,7 +787,6 @@ def analyze_csrc_document(file_path: str):
 
 @mcp.tool()
 def get_csrc_document_stats():
-    """Get statistics about locally stored CSRC documents"""
     try:
         stats = {
             "total_documents": 0,
@@ -890,12 +855,8 @@ def get_csrc_document_stats():
 
 @mcp.tool()
 def clean_csrc_documents(older_than_days: int = 30, dry_run: bool = True):
-    """Clean up old CSRC documents
     
-    Args:
-        older_than_days: Remove documents older than this many days
-        dry_run: If True, only report what would be deleted without actually deleting
-    """
+    
     try:
         import time
         
@@ -957,7 +918,6 @@ def clean_csrc_documents(older_than_days: int = 30, dry_run: bool = True):
 # Health check endpoint
 @mcp.tool()
 def csrc_health_check():
-    """Check CSRC MCP server health and connectivity"""
     try:
         health_info = {
             "server_status": "running",
